@@ -144,14 +144,20 @@ label_cor_borda.grid(column=2, row=0, sticky=E, **paddings)
 caixa_cor_borda = tk.Button(frame, text='Selecionar cor', command=lambda: escolher_cor('b'))
 caixa_cor_borda.grid(column=3, row=0, sticky=E, **paddings)
 
+caixa_resetar_borda = tk.Button(frame, text='Resetar borda', command=lambda: cor_borda.set('#000000'))
+caixa_resetar_borda.grid(column=4, row=0, sticky=W, **paddings)
+
 label_cor_preenchimento = tk.Label(frame, text='Cor do preenchimento: ')
 label_cor_preenchimento.grid(column=2, row=1, sticky=E, **paddings)
 caixa_cor_preenchimento = tk.Button(frame, text='Selecionar cor', command=lambda: escolher_cor('p'))
 caixa_cor_preenchimento.grid(column=3, row=1, sticky=E, **paddings)
 
+caixa_resetar_preenchimento = tk.Button(frame, text='Resetar preenchimento', command=lambda: cor_preenchimento.set(''))
+caixa_resetar_preenchimento.grid(column=4, row=1, sticky=E, **paddings)
+
 # Área de desenho
-canvas = Canvas(frame, bg='white', width=600, height=600)
-canvas.grid(column=0, row=2, columnspan=4, sticky=W, **paddings)
+canvas = Canvas(frame, bg='white', width=800, height=600)
+canvas.grid(column=0, row=2, columnspan=5, sticky=N, **paddings)
 
 frame.pack()
 
