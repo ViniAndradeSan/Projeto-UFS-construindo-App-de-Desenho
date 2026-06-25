@@ -5,13 +5,13 @@ from tkinter import ttk
 def iniciar_figura_nova(event): 
     global figura_nova
     if tipo_figura_var.get() == 'Linha':
-        figura_nova = ("linha", (event.x, event.y, event.x, event.y))
-    elif tipo_figura_var.get() == 'oval':
-        figura_nova = ("oval", (event.x, event.y, event.x, event.y))
+        figura_nova = ("Linha", (event.x, event.y, event.x, event.y))
+    elif tipo_figura_var.get() == 'Oval':
+        figura_nova = ("Oval", (event.x, event.y, event.x, event.y))
     elif tipo_figura_var.get() == 'Retangulo':
          figura_nova = ("Retangulo", (event.x, event.y, event.x, event.y))
     else:
-        figura_nova = ("rabisco", [(event.x, event.y)])
+        figura_nova = ("Rabisco", [(event.x, event.y)])
 
 # Quando mouse é movido com o botão pressionado
 def atualizar_figura_nova(event):
@@ -25,6 +25,8 @@ def atualizar_figura_nova(event):
         figura_nova = ("Linha", (figura_nova[1][0], figura_nova[1][1], event.x, event.y))
     elif figura_nova[0] == "Retangulo":
         figura_nova = ('Retangulo', (figura_nova[1][0], figura_nova[1][1], event.x, event.y))
+    elif figura_nova[0] == "Oval":
+        figura_nova = ("Oval", (figura_nova[1][0], figura_nova[1][1], event.x, event.y))
     
     desenhar_figuras()
     desenhar_figura_nova()
@@ -43,7 +45,7 @@ def desenhar_figuras():
     for fig, values in figuras:
         if fig == "Linha":
             canvas.create_line(values[0], values[1], values[2], values[3])
-        elif fig == "oval":
+        elif fig == "Oval":
             canvas.create_oval(values[0], values[1], values[2], values[3], outline="black")
         elif fig == "Retangulo":
             canvas.create_rectangle(values[0], values[1], values[2], values[3])
@@ -56,7 +58,7 @@ def desenhar_figura_nova():
     fig, values = figura_nova
     if fig == "Linha":
         canvas.create_line(values[0], values[1], values[2], values[3], dash=(4, 2))
-    elif fig == "oval":
+    elif fig == "Oval":
         canvas.create_oval(values[0], values[1], values[2], values[3], dash=(4, 2), outline="black")
     elif fig == "Retangulo":
             canvas.create_rectangle(values[0], values[1], values[2], values[3], dash=(4, 2))
@@ -65,7 +67,7 @@ def desenhar_figura_nova():
 
 def incompleta(figura):
     fig, values = figura
-    if fig == ["linha", "oval"]:
+    if fig in ["Linha", "Oval"]:
         return (values[0], values[1]) == (values[2], values[3])
     elif fig == "Rabisco":
         return len(values) <= 1
@@ -89,7 +91,7 @@ label.grid(column=0, row=0, sticky=E, **paddings)
 
 # option menu
 tipo_figura_var = StringVar(root)
-option_menu = ttk.OptionMenu(frame, tipo_figura_var, 'Linha', 'Linha', 'Rabisco', 'Retangulo', 'Circulo', 'oval')
+option_menu = ttk.OptionMenu(frame, tipo_figura_var, 'Linha', 'Linha', 'Rabisco', 'Retangulo', 'Circulo', 'Oval')
 option_menu.grid(column=1, row=0, sticky=W, **paddings)
 
 # Área de desenho
