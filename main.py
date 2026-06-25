@@ -1,5 +1,7 @@
 from tkinter import *
 from tkinter import ttk
+from tkinter import colorchooser
+import tkinter as tk
 
 # Quando mouse é pressionado
 def iniciar_figura_nova(event): 
@@ -44,26 +46,26 @@ def desenhar_figuras():
     canvas.delete("all")
     for fig, values in figuras:
         if fig == "Linha":
-            canvas.create_line(values[0], values[1], values[2], values[3])
+            canvas.create_line(values[0], values[1], values[2], values[3], fill=cor_preenchimento.get())
         elif fig == "Oval":
-            canvas.create_oval(values[0], values[1], values[2], values[3], outline="black")
+            canvas.create_oval(values[0], values[1], values[2], values[3], outline=cor_borda.get(), fill=cor_preenchimento.get())
         elif fig == "Retangulo":
-            canvas.create_rectangle(values[0], values[1], values[2], values[3])
+            canvas.create_rectangle(values[0], values[1], values[2], values[3], outline=cor_borda.get(), fill=cor_preenchimento.get())
         else: # fig == "rabisco"
-            canvas.create_line(values)
+            canvas.create_line(values, fill=cor_preenchimento.get())
 
 def desenhar_figura_nova():
     if not figura_nova:
         return
     fig, values = figura_nova
     if fig == "Linha":
-        canvas.create_line(values[0], values[1], values[2], values[3], dash=(4, 2))
+        canvas.create_line(values[0], values[1], values[2], values[3], dash=(4, 2), fill=cor_preenchimento.get())
     elif fig == "Oval":
-        canvas.create_oval(values[0], values[1], values[2], values[3], dash=(4, 2), outline="black")
+        canvas.create_oval(values[0], values[1], values[2], values[3], dash=(4, 2), outline=cor_borda.get(), fill=cor_preenchimento.get())
     elif fig == "Retangulo":
-            canvas.create_rectangle(values[0], values[1], values[2], values[3], dash=(4, 2))
+            canvas.create_rectangle(values[0], values[1], values[2], values[3], dash=(4, 2), outline=cor_borda.get(), fill=cor_preenchimento.get())
     else: # fig == "rabisco"
-        canvas.create_line(values, dash=(4, 2))
+        canvas.create_line(values, dash=(4, 2), fill=cor_preenchimento.get())
 
 def incompleta(figura):
     fig, values = figura
@@ -73,6 +75,17 @@ def incompleta(figura):
         return len(values) <= 1
     elif fig == "Retangulo":
         return (values[0], values[1]) == (values[2], values[3])
+
+def escolher_cor(tipo):
+    cor = colorchooser.askcolor()
+    # Só continua a função se o usuário escolher uma cor.
+    if not cor[1]:
+        return
+    
+    if tipo == 'b':
+        cor_borda.set(cor[1])
+    elif tipo == 'p':
+        cor_preenchimento.set(cor[1])
 
 #******* MAIN *******#
 
@@ -86,17 +99,32 @@ frame = Frame(root)
 paddings = {'padx': 5, 'pady': 5} 
 
 # label
-label = ttk.Label(frame, text='Selecione sua ferramenta de desenho: ')
-label.grid(column=0, row=0, sticky=E, **paddings)
+label = tk.Label(frame, text='Selecione sua ferramenta de desenho: ')
+label.grid(column=0, row=0, sticky=E, **paddings, rowspan=2)
 
 # option menu
 tipo_figura_var = StringVar(root)
-option_menu = ttk.OptionMenu(frame, tipo_figura_var, 'Linha', 'Linha', 'Rabisco', 'Retangulo', 'Circulo', 'Oval')
-option_menu.grid(column=1, row=0, sticky=W, **paddings)
+option_menu = ttk.OptionMenu(frame, tipo_figura_var, 'Linha', 'Rabisco', 'Retangulo', 'Circulo', 'Oval')
+option_menu.grid(column=1, row=0, sticky=W, **paddings, rowspan=2)
+
+# menu de cores
+cor_borda = StringVar(root, value='#000000')
+cor_preenchimento = StringVar(root, value='#000000')
+
+
+label_cor_borda = tk.Label(frame, text='Cor da borda: ')
+label_cor_borda.grid(column=2, row=0, sticky=E, **paddings)
+caixa_cor_borda = tk.Button(frame, text='Selecionar cor', command=lambda: escolher_cor('b'))
+caixa_cor_borda.grid(column=3, row=0, sticky=E, **paddings)
+
+label_cor_preenchimento = tk.Label(frame, text='Cor do preenchimento: ')
+label_cor_preenchimento.grid(column=2, row=1, sticky=E, **paddings)
+caixa_cor_preenchimento = tk.Button(frame, text='Selecionar cor', command=lambda: escolher_cor('p'))
+caixa_cor_preenchimento.grid(column=3, row=1, sticky=E, **paddings)
 
 # Área de desenho
 canvas = Canvas(frame, bg='white', width=600, height=600)
-canvas.grid(column=0, row=1, columnspan=2, sticky=W, **paddings)
+canvas.grid(column=0, row=2, columnspan=4, sticky=W, **paddings)
 
 frame.pack()
 
