@@ -1,7 +1,6 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter import colorchooser
-import tkinter as tk
 
 # Quando mouse é pressionado
 def iniciar_figura_nova(event): 
@@ -67,7 +66,9 @@ def desenhar_figuras():
             raio = lado // 2
             canvas.create_oval(centrox - raio, centroy - raio, centrox + raio, centroy + raio, outline=cor[0], fill=cor[1]) #fórmula do circ. 
         else: # fig == "rabisco"
-            canvas.create_line(values, fill=cor)
+            # Tratamento para evitar erro visual se houver menos de 4 coordenadas no rabisco
+            if len(values) >= 2:
+                canvas.create_line(values, fill=cor)
 
 def desenhar_figura_nova():
     if not figura_nova:
@@ -92,7 +93,9 @@ def desenhar_figura_nova():
         canvas.create_oval(centrox - raio, centroy - raio, centrox + raio, centroy + raio,
                        dash=(4, 2), outline=cor[0], fill=cor[1])
     else: # fig == "rabisco"
-        canvas.create_line(values, dash=(4, 2), fill=cor)
+        # Tratamento para evitar erro visual se houver menos de 4 coordenadas no rabisco
+        if len(values) >= 2:
+            canvas.create_line(values, dash=(4, 2), fill=cor)
 
 def incompleta(figura):
     fig, values, _ = figura
@@ -114,6 +117,18 @@ def escolher_cor(tipo):
     elif tipo == 'p':
         cor_preenchimento.set(cor[1])
 
+# Quando botão Desfazer é clicado
+def desfazer_ultimo():
+    if figuras:
+        figuras.pop()
+        desenhar_figuras()
+
+# Quando botão Limpar Tela é clicado
+def limpar_tudo():
+    global figuras
+    figuras = []
+    canvas.delete("all")
+
 #******* MAIN *******#
 
 figuras = []       # Todas as figuras desenhadas
@@ -126,7 +141,7 @@ frame = Frame(root)
 paddings = {'padx': 5, 'pady': 5} 
 
 # label
-label = tk.Label(frame, text='Selecione sua ferramenta de desenho: ')
+label = Label(frame, text='Selecione sua ferramenta de desenho: ')
 label.grid(column=0, row=0, sticky=E, **paddings, rowspan=2)
 
 # option menu
@@ -138,26 +153,38 @@ option_menu.grid(column=1, row=0, sticky=W, **paddings, rowspan=2)
 cor_borda = StringVar(root, value='#000000')
 cor_preenchimento = StringVar(root)
 
-
-label_cor_borda = tk.Label(frame, text='Cor da borda: ')
+label_cor_borda = Label(frame, text='Cor da borda: ')
 label_cor_borda.grid(column=2, row=0, sticky=E, **paddings)
-caixa_cor_borda = tk.Button(frame, text='Selecionar cor', command=lambda: escolher_cor('b'))
+caixa_cor_borda = Button(frame, text='Selecionar cor', command=lambda: escolher_cor('b'))
 caixa_cor_borda.grid(column=3, row=0, sticky=E, **paddings)
 
-caixa_resetar_borda = tk.Button(frame, text='Resetar borda', command=lambda: cor_borda.set('#000000'))
+caixa_resetar_borda = Button(frame, text='Resetar borda', command=lambda: cor_borda.set('#000000'))
 caixa_resetar_borda.grid(column=4, row=0, sticky=W, **paddings)
 
-label_cor_preenchimento = tk.Label(frame, text='Cor do preenchimento: ')
+label_cor_preenchimento = Label(frame, text='Cor do preenchimento: ')
 label_cor_preenchimento.grid(column=2, row=1, sticky=E, **paddings)
-caixa_cor_preenchimento = tk.Button(frame, text='Selecionar cor', command=lambda: escolher_cor('p'))
+caixa_cor_preenchimento = Button(frame, text='Selecionar cor', command=lambda: escolher_cor('p'))
 caixa_cor_preenchimento.grid(column=3, row=1, sticky=E, **paddings)
 
-caixa_resetar_preenchimento = tk.Button(frame, text='Resetar preenchimento', command=lambda: cor_preenchimento.set(''))
+caixa_resetar_preenchimento = Button(frame, text='Resetar preenchimento', command=lambda: cor_preenchimento.set(''))
 caixa_resetar_preenchimento.grid(column=4, row=1, sticky=E, **paddings)
+
+# controle global (Seção de apagar isolada em um sub-frame)
+frame_apagar = Frame(frame)
+frame_apagar.grid(column=0, row=2, columnspan=5, sticky=W, **paddings)
+
+label_apagar = Label(frame_apagar, text='Opção de apagar: ')
+label_apagar.pack(side=LEFT, padx=2)
+
+caixa_desfazer = Button(frame_apagar, text='Desfazer', command=desfazer_ultimo)
+caixa_desfazer.pack(side=LEFT, padx=5)
+
+caixa_limpar = Button(frame_apagar, text='Limpar Tela', command=limpar_tudo)
+caixa_limpar.pack(side=LEFT, padx=5)
 
 # Área de desenho
 canvas = Canvas(frame, bg='white', width=800, height=600)
-canvas.grid(column=0, row=2, columnspan=5, sticky=N, **paddings)
+canvas.grid(column=0, row=3, columnspan=5, sticky=N, **paddings)
 
 frame.pack()
 
