@@ -16,42 +16,57 @@ class Figura(ABC):
         return (self.x1, self.y1) == (self.x2, self.y2)
 
     def _opcoes_desenho(self, tracejado=False):
-        # Coloque aqui Danilo sua parte
-        pass
+        opcoes = {
+            "fill": self.cor_borda
+        }
+
+        if tracejado:
+            opcoes["dash"] = (4,2)
+            
+        return opcoes
+
+
+
 
 
 class FiguraPreenchida(Figura):
     def __init__(self, x1, y1, x2, y2, cor_borda, cor_preenchimento):
-        # Coloque aqui Danilo sua parte
-        pass
+        super().__init__(x1,x2,y1,y2,cor_borda)
+        self.cor_preenchimento = cor_preenchimento
 
     def _opcoes_desenho(self, tracejado=False):
-        # Coloque aqui Danilo sua parte
-        pass
+        opcoes = {"outline": self.cor_borda , "fill": self.cor_preenchimento}
+        
+        if tracejado:
+            opcoes["dash"] = (4,2)
+            
+        return opcoes
 
 
 class Linha(Figura):
     def desenhar(self, canvas, tracejado=False):
-        # Coloque aqui Danilo sua parte
-        pass
+        canvas.create_line(self.x1, self.y1, self.x2, self.y2,
+         **self._opcoes_desenho(tracejado)
+         )
+         
 
 
 class Rabisco(Figura):
-    def __init__(self, x, y, cor_borda):
-        # Coloque aqui Danilo sua parte
-        pass
+    def __init__(self, x1, y1, cor_borda):
+        super().__init__(x1,x1,y1,y1,cor_borda)
+        self.pontos = [(x1,y1)]
 
     def atualizar(self, x, y):
-        # Coloque aqui Danilo sua parte
-        pass
+        super().atualizar(x,y)
+        self.pontos.append((x, y))
+        
 
     def esta_incompleta(self):
-        # Coloque aqui Danilo sua parte
-        pass
+        return len(self.pontos) < 2
 
     def desenhar(self, canvas, tracejado=False):
-        # Coloque aqui Danilo sua parte
-        pass
+        if len(self.pontos) < 2:
+            return
 
 
 class Retangulo(FiguraPreenchida):
