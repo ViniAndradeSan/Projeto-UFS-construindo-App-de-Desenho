@@ -53,13 +53,11 @@ class Linha(Figura):
 
 class Rabisco(Figura):
     def __init__(self, x1, y1, cor_borda):
-        super().__init__(x1,x1,y1,y1,cor_borda)
+        super().__init__(x1, y1, x1, y1, cor_borda)
         self.pontos = [(x1,y1)]
 
     def atualizar(self, x, y):
-        super().atualizar(x,y)
-        self.pontos.append((x, y))
-        
+        self.pontos.append((x, y))    
 
     def esta_incompleta(self):
         return len(self.pontos) < 2
@@ -67,6 +65,7 @@ class Rabisco(Figura):
     def desenhar(self, canvas, tracejado=False):
         if len(self.pontos) < 2:
             return
+        canvas.create_line(self.pontos, **self._opcoes_desenho(tracejado))
 
 
 class Retangulo(FiguraPreenchida):

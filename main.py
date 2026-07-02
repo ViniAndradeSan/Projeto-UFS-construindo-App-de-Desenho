@@ -33,7 +33,7 @@ def iniciar_figura_nova(event):
         figura_nova = Rabisco(event.x, event.y, cor_borda.get())
     else:
         classe = CLASSES_FIGURA[tipo]
-        if classe is Linha or classe is Rabisco:
+        if classe is Linha:
             figura_nova = classe(event.x, event.y, event.x, event.y, cor_borda.get())
         else:
             figura_nova = classe(
