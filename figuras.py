@@ -25,10 +25,6 @@ class Figura(ABC):
             
         return opcoes
 
-
-
-
-
 class FiguraPreenchida(Figura):
     def __init__(self, x1, y1, x2, y2, cor_borda, cor_preenchimento):
         super().__init__(x1,x2,y1,y2,cor_borda)
