@@ -11,6 +11,7 @@ CLASSES_FIGURA = {
     'Circulo': Circulo,
 }
 
+print("aaaa")
 
 def iniciar_figura_nova(event):
     global figura_nova
