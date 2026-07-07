@@ -1,4 +1,6 @@
 from ..modelo.figuras import Linha, Rabisco, Retangulo, Oval, Circulo, Poligono
+from tkinter import  colorchooser
+
 
 class Controlador:
     CLASSES_FIGURA = {
@@ -8,8 +10,9 @@ class Controlador:
         'Circulo': Circulo,
     }
 
-    def __init__(self, desenho):
+    def __init__(self, desenho, area_desenho):
         self.desenho = desenho
+        self.area_desenho = area_desenho
         self.figura_nova = None
 
     def iniciar_figura_nova(self, event):
@@ -24,7 +27,7 @@ class Controlador:
                     event.x, event.y,
                     self.cor_borda.get(), self.cor_preenchimento.get()
                 )
-            # redesenhar quando houver o view
+            self.area_desenho.atualizar(self.desenho.figuras, self.figura_nova)
             return
 
         if tipo == 'Rabisco':
@@ -45,7 +48,7 @@ class Controlador:
             return
         self.figura_nova.atualizar(event.x, event.y)
 
-        #Desenhar quando ter o view
+        self.area_desenho.atualizar(self.desenho.figuras, self.figura_nova)
 
     def mover_mouse(self, event):
         if self.figura_nova is not None and isinstance(self.figura_nova, Poligono):
@@ -60,7 +63,7 @@ class Controlador:
             self.desenho.adicionar(self.figura_nova)
 
         self.figura_nova = None
-        # Desenhar quando ter o view
+        self.area_desenho.atualizar(self.desenho.figuras, self.figura_nova)
 
 
     # Duplo clique ou Enter: finaliza o Poligono em construção
@@ -70,15 +73,34 @@ class Controlador:
             if not self.figura_nova.esta_incompleta():
                 self.desenho.adicionar(self.figura_nova)
             self.figura_nova = None
-            # Desenhar quando ter o view
+            self.area_desenho.atualizar(self.desenho.figuras, self.figura_nova)
 
 
     # Esc: cancela o Poligono em construção
     def cancelar_figura_nova(self, event):
         if self.figura_nova is not None:
             self.figura_nova = None
-            # Desenhar quando ter o view
+            self.area_desenho.atualizar(self.desenho.figuras, self.figura_nova)
 
+    def escolher_cor(self, tipo):
+        cor = colorchooser.askcolor()
+        if not cor[1]:
+            return
+
+        if tipo == 'b':
+            self.cor_borda.set(cor[1])
+        elif tipo == 'p':
+            self.cor_preenchimento.set(cor[1])
+
+
+    def desfazer_ultimo(self):
+        self.desenho.desfazer()
+        self.area_desenho.atualizar(self.desenho.figuras, self.figura_nova)
+
+
+    def limpar_tudo(self):
+        self.desenho.limpar()
+        self.area_desenho.atualizar(self.desenho.figuras, self.figura_nova)
 
 
 '''''
