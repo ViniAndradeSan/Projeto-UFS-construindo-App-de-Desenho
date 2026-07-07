@@ -1,128 +1,87 @@
+from ..modelo.figuras import Linha, Rabisco, Retangulo, Oval, Circulo, Poligono
 
-CLASSES_FIGURA = {
-    'Linha': Linha,
-    'Retangulo': Retangulo,
-    'Oval': Oval,
-    'Circulo': Circulo,
-}
+class Controlador:
+    CLASSES_FIGURA = {
+        'Linha': Linha,
+        'Retangulo': Retangulo,
+        'Oval': Oval,
+        'Circulo': Circulo,
+    }
 
+    def __init__(self, desenho):
+        self.desenho = desenho
+        self.figura_nova = None
 
-def iniciar_figura_nova(event):
-    global figura_nova
+    def iniciar_figura_nova(self, event):
 
-    tipo = tipo_figura_var.get()
+        tipo = self.tipo_figura_var.get()
 
-    if tipo == 'Poligono':
-        if figura_nova is not None and isinstance(figura_nova, Poligono):
-            figura_nova.adicionar_vertice(event.x, event.y)
+        if tipo == 'Poligono':
+            if self.figura_nova is not None and isinstance(self.figura_nova, Poligono):
+                self.figura_nova.adicionar_vertice(event.x, event.y)
+            else:
+                self.figura_nova = Poligono(
+                    event.x, event.y,
+                    self.cor_borda.get(), self.cor_preenchimento.get()
+                )
+            # redesenhar quando houver o view
+            return
+
+        if tipo == 'Rabisco':
+            self.figura_nova = Rabisco(event.x, event.y, self.cor_borda.get())
         else:
-            figura_nova = Poligono(
-                event.x, event.y,
-                cor_borda.get(), cor_preenchimento.get()
-            )
-        desenhar_figuras()
-        desenhar_figura_nova()
-        return
-
-    if tipo == 'Rabisco':
-        figura_nova = Rabisco(event.x, event.y, cor_borda.get())
-    else:
-        classe = CLASSES_FIGURA[tipo]
-        if classe is Linha:
-            figura_nova = classe(event.x, event.y, event.x, event.y, cor_borda.get())
-        else:
-            figura_nova = classe(
-                event.x, event.y, event.x, event.y,
-                cor_borda.get(), cor_preenchimento.get()
-            )
+            classe = self.CLASSES_FIGURA[tipo]
+            if classe is Linha:
+                self.figura_nova = classe(event.x, event.y, event.x, event.y, self.cor_borda.get())
+            else:
+                self.figura_nova = classe(
+                    event.x, event.y, event.x, event.y,
+                    self.cor_borda.get(), self.cor_preenchimento.get()
+                )
 
 
-def atualizar_figura_nova(event):
-    global figura_nova
-    if not figura_nova: 
-        return
+    def atualizar_figura_nova(self, event):
+        if not self.figura_nova: 
+            return
+        self.figura_nova.atualizar(event.x, event.y)
 
-    if isinstance(figura_nova, Rabisco):
-        figura_nova.atualizar(event.x, event.y)
-    else:
-        figura_nova.atualizar(event.x, event.y)
+        #Desenhar quando ter o view
 
-    desenhar_figuras()
-    desenhar_figura_nova()
-
-def mover_mouse(event):
-    if figura_nova is not None and isinstance(figura_nova, Poligono):
-        atualizar_figura_nova(event)
+    def mover_mouse(self, event):
+        if self.figura_nova is not None and isinstance(self.figura_nova, Poligono):
+            self.atualizar_figura_nova(event)
 
 
-def incluir_figura_nova(event):
-    global figura_nova
-    if figura_nova is None:
-        return
+    def incluir_figura_nova(self, event):
+        if self.figura_nova is None or isinstance(self.figura_nova, Poligono):
+            return
 
-    if isinstance(figura_nova, Poligono):
-        return
+        if not self.figura_nova.esta_incompleta():
+            self.desenho.adicionar(self.figura_nova)
 
-    if not figura_nova.esta_incompleta():
-        figuras.append(figura_nova)
-
-    figura_nova = None
-    desenhar_figuras()
+        self.figura_nova = None
+        # Desenhar quando ter o view
 
 
-# Duplo clique ou Enter: finaliza o Poligono em construção
-def finalizar_poligono(event=None):
-    global figura_nova
-    if figura_nova is not None and isinstance(figura_nova, Poligono):
-        figura_nova.finalizar()
-        if not figura_nova.esta_incompleta():
-            figuras.append(figura_nova)
-        figura_nova = None
-        desenhar_figuras()
+    # Duplo clique ou Enter: finaliza o Poligono em construção
+    def finalizar_poligono(self, event):
+        if self.figura_nova is not None and isinstance(self.figura_nova, Poligono):
+            self.figura_nova.finalizar()
+            if not self.figura_nova.esta_incompleta():
+                self.desenho.adicionar(self.figura_nova)
+            self.figura_nova = None
+            # Desenhar quando ter o view
 
 
-# Esc: cancela o Poligono em construção
-def cancelar_figura_nova(event=None):
-    global figura_nova
-    if figura_nova is not None:
-        figura_nova = None
-        desenhar_figuras()
+    # Esc: cancela o Poligono em construção
+    def cancelar_figura_nova(self, event):
+        if self.figura_nova is not None:
+            self.figura_nova = None
+            # Desenhar quando ter o view
 
 
-def desenhar_figuras():
-    canvas.delete("all")
-    for fig in figuras:
-        fig.desenhar(canvas)
 
-
-def desenhar_figura_nova():
-    if not figura_nova:
-        return
-    figura_nova.desenhar(canvas, tracejado=True)
-
-
-def escolher_cor(tipo):
-    cor = colorchooser.askcolor()
-    if not cor[1]:
-        return
-
-    if tipo == 'b':
-        cor_borda.set(cor[1])
-    elif tipo == 'p':
-        cor_preenchimento.set(cor[1])
-
-
-def desfazer_ultimo():
-    if figuras:
-        figuras.pop()
-        desenhar_figuras()
-
-
-def limpar_tudo():
-    global figuras
-    figuras = []
-    canvas.delete("all")
-
+'''''
 
 # Eventos de mouse associados ao canvas
 canvas.bind('<ButtonPress-1>', iniciar_figura_nova)
@@ -134,3 +93,4 @@ canvas.bind('<Double-Button-1>', finalizar_poligono)
 # Eventos de teclado para finalizar/cancelar o Poligono
 root.bind('<Return>', finalizar_poligono)
 root.bind('<Escape>', cancelar_figura_nova)
+'''''

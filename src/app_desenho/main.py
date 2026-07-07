@@ -1,4 +1,5 @@
 from tkinter import *
+import tkinter as ttk
 from src.app_desenho.modelo.figuras import *
 from src.app_desenho.controlador.controlador import *
 
