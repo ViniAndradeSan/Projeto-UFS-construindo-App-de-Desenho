@@ -1,4 +1,4 @@
-from ..modelo.figuras import Linha, Rabisco, Retangulo, Oval, Circulo, Poligono
+from modelo.figuras import Linha, Rabisco, Retangulo, Oval, Circulo, Poligono
 from tkinter import  colorchooser
 
 

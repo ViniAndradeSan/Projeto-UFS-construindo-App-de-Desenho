@@ -1,7 +1,7 @@
 from tkinter import *
-import tkinter as ttk
-from src.app_desenho.modelo.figuras import *
-from src.app_desenho.controlador.controlador import *
+from controlador import *
+from modelo import *
+from visao import *
 
 
 #******* MAIN *******#
@@ -9,28 +9,21 @@ from src.app_desenho.controlador.controlador import *
 root = Tk()
 root.title('Exemplo de aplicação')
 frame = Frame(root)
+desenho = Desenho()
+area = AreaDesenho(frame)
+controlador = Controlador(desenho, area)
+barra = BarraFerramentas(frame, controlador)
 
-# menu de cores
-cor_borda = StringVar(root, value='#000000')
-cor_preenchimento = StringVar(root)
+# Eventos de mouse associados ao canvas
+area.canvas.bind('<ButtonPress-1>', controlador.iniciar_figura_nova)
+area.canvas.bind('<B1-Motion>', controlador.atualizar_figura_nova)
+area.canvas.bind('<ButtonRelease-1>', controlador.incluir_figura_nova)
+area.canvas.bind('<Motion>', controlador.mover_mouse)
+area.canvas.bind('<Double-Button-1>', controlador.finalizar_poligono)
 
-# controle global
-frame_apagar = Frame(frame)
-frame_apagar.grid(column=0, row=2, columnspan=5, sticky=W, **paddings)
-
-label_apagar = Label(frame_apagar, text='Opção de apagar: ')
-label_apagar.pack(side=LEFT, padx=2)
-
-caixa_desfazer = Button(frame_apagar, text='Desfazer', command=desfazer_ultimo)
-caixa_desfazer.pack(side=LEFT, padx=5)
-
-caixa_limpar = Button(frame_apagar, text='Limpar Tela', command=limpar_tudo)
-caixa_limpar.pack(side=LEFT, padx=5)
-
-# Área de desenho
-canvas = Canvas(frame, bg='white', width=800, height=600)
-canvas.grid(column=0, row=3, columnspan=5, sticky=N, **paddings)
+# Eventos de teclado para finalizar/cancelar o Poligono
+root.bind('<Return>', controlador.finalizar_poligono)
+root.bind('<Escape>', controlador.cancelar_figura_nova)
 
 frame.pack()
-
 root.mainloop()

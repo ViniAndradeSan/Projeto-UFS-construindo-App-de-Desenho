@@ -24,7 +24,6 @@ class BarraFerramentas:
         option_menu.grid(column=1, row=0, sticky=W, **self.paddings, rowspan=2)
 
         # Menu de cores
-
         self.label_cor_borda = Label(frame, text='Cor da borda: ')
         self.label_cor_borda.grid(column=2, row=0, sticky=E, **self.paddings)
         self.caixa_cor_borda = Button(frame, text='Selecionar cor', command=lambda: controlador.escolher_cor('b'))
