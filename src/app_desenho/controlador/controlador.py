@@ -102,7 +102,11 @@ class Controlador:
         self.desenho.limpar()
         self.area_desenho.atualizar(self.desenho.figuras, self.figura_nova)
 
-
+    def definir_variaveis(self, tipo_figura_var, cor_borda, cor_preenchimento):
+        self.tipo_figura_var = tipo_figura_var
+        self.cor_borda = cor_borda
+        self.cor_preenchimento = cor_preenchimento
+        
 '''''
 
 # Eventos de mouse associados ao canvas

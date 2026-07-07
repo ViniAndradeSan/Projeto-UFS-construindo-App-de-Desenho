@@ -10,38 +10,9 @@ root = Tk()
 root.title('Exemplo de aplicação')
 frame = Frame(root)
 
-paddings = {'padx': 5, 'pady': 5}
-
-# label
-label = Label(frame, text='Selecione sua ferramenta de desenho: ')
-label.grid(column=0, row=0, sticky=E, **paddings, rowspan=2)
-
-tipo_figura_var = StringVar(root)
-option_menu = ttk.OptionMenu(
-    frame, tipo_figura_var, 'Linha',
-    'Linha', 'Rabisco', 'Retangulo', 'Circulo', 'Oval', 'Poligono'
-)
-option_menu.grid(column=1, row=0, sticky=W, **paddings, rowspan=2)
-
 # menu de cores
 cor_borda = StringVar(root, value='#000000')
 cor_preenchimento = StringVar(root)
-
-label_cor_borda = Label(frame, text='Cor da borda: ')
-label_cor_borda.grid(column=2, row=0, sticky=E, **paddings)
-caixa_cor_borda = Button(frame, text='Selecionar cor', command=lambda: escolher_cor('b'))
-caixa_cor_borda.grid(column=3, row=0, sticky=E, **paddings)
-
-caixa_resetar_borda = Button(frame, text='Resetar borda', command=lambda: cor_borda.set('#000000'))
-caixa_resetar_borda.grid(column=4, row=0, sticky=W, **paddings)
-
-label_cor_preenchimento = Label(frame, text='Cor do preenchimento: ')
-label_cor_preenchimento.grid(column=2, row=1, sticky=E, **paddings)
-caixa_cor_preenchimento = Button(frame, text='Selecionar cor', command=lambda: escolher_cor('p'))
-caixa_cor_preenchimento.grid(column=3, row=1, sticky=E, **paddings)
-
-caixa_resetar_preenchimento = Button(frame, text='Resetar preenchimento', command=lambda: cor_preenchimento.set(''))
-caixa_resetar_preenchimento.grid(column=4, row=1, sticky=E, **paddings)
 
 # controle global
 frame_apagar = Frame(frame)
