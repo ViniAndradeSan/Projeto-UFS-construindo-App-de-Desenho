@@ -1,5 +1,6 @@
 from modelo.figuras import Linha, Rabisco, Retangulo, Oval, Circulo, Poligono
-from tkinter import  colorchooser
+from modelo.modelo_desenho import Desenho
+from tkinter import  colorchooser, filedialog
 
 
 class Controlador:
@@ -106,17 +107,12 @@ class Controlador:
         self.tipo_figura_var = tipo_figura_var
         self.cor_borda = cor_borda
         self.cor_preenchimento = cor_preenchimento
+
+    def salvar_para_edicao(self):
+        self.save_dir = filedialog.asksaveasfilename(
+            title="Escolha o nome do desenho.",
+            defaultextension='.json'
+        )
         
-'''''
-
-# Eventos de mouse associados ao canvas
-canvas.bind('<ButtonPress-1>', iniciar_figura_nova)
-canvas.bind('<B1-Motion>', atualizar_figura_nova)
-canvas.bind('<ButtonRelease-1>', incluir_figura_nova)
-canvas.bind('<Motion>', mover_mouse)          # prévia do Poligono
-canvas.bind('<Double-Button-1>', finalizar_poligono)
-
-# Eventos de teclado para finalizar/cancelar o Poligono
-root.bind('<Return>', finalizar_poligono)
-root.bind('<Escape>', cancelar_figura_nova)
-'''''
+        if self.save_dir:
+            self.desenho.salvar(diretorio=self.save_dir)

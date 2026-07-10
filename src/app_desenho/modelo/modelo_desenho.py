@@ -1,6 +1,7 @@
 from .figuras import figura_from_dict
+import json
 
-class ModeloDesenho:
+class Desenho:
     def __init__(self):
         self._figuras = []
         self._figura_atual = []
@@ -11,21 +12,6 @@ class ModeloDesenho:
     @property
     def figuras(self):
         return list(self._figuras)
-<<<<<<< HEAD
-
-    def adicionar(self, figura):
-        self._figuras.append(figura)
-
-    def desfazer(self):
-        if self._figuras:
-            return self._figuras.pop()
-
-    def limpar(self):
-        self._figuras.clear()
-
-    def esta_vazio(self):
-        return len(self._figuras) == 0
-=======
     
     def adicionar(self, figura):
         self._figuras.append(figura)
@@ -35,7 +21,7 @@ class ModeloDesenho:
             return self._figuras.pop()
 
     def limpar(self):
-        self._figras.clear()
+        self._figuras.clear()
 
     def criar(self):
         pass
@@ -50,8 +36,12 @@ class ModeloDesenho:
 
     @staticmethod
     def from_dict(dicionario: dict):
-        modelo = ModeloDesenho()
+        modelo = Desenho()
         for figuradata in dicionario['figuras']:
             modelo._figuras.append(figura_from_dict(figuradata))
         return modelo
->>>>>>> b0b575f (feat(model): adicionando serialização das figura)
+
+    def salvar(self, diretorio):
+        self.figuras_serializadas = self.to_dict()
+        with open(diretorio, "w") as file:
+            json.dump(self.figuras_serializadas, file)
