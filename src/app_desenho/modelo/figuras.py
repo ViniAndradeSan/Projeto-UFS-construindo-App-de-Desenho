@@ -38,14 +38,25 @@ class FiguraPreenchida(Figura):
             
         return opcoes
 
-
 class Linha(Figura):
     def desenhar(self, canvas, tracejado=False):
         canvas.create_line(self.x1, self.y1, self.x2, self.y2,
          **self._opcoes_desenho(tracejado)
          )
-         
 
+    def to_dict(self):
+        return {
+            'tipo': 'Linha',
+            'x1': self.x1,
+            'y1': self.y1,
+            'x2': self.x2,
+            'y2': self.y2,
+            'cor_borda': self.cor_borda,
+        }
+
+    @staticmethod
+    def from_dict(dicionario: dict):
+        return Linha(dicionario['x1'], dicionario['x2'], dicionario['y1'], dicionario['y2'], dicionario['cor_borda'])
 
 class Rabisco(Figura):
     def __init__(self, x1, y1, cor_borda):
@@ -63,6 +74,24 @@ class Rabisco(Figura):
             return
         canvas.create_line(self.pontos, **self._opcoes_desenho(tracejado))
 
+    def to_dict(self):
+        return {
+            'tipo': 'Rabisco',
+            'x1': self.x1,
+            'y1': self.y1,
+            'x2': self.x2,
+            'y2': self.y2,
+            'cor_borda': self.cor_borda,
+            'pontos': [list(p) for p in self.pontos],
+        }
+
+    @staticmethod
+    def from_dict(dicionario: dict):
+        r = Rabisco(dicionario['x1'], dicionario['y1'], dicionario['cor_borda'])
+        r.pontos = [tuple(p) for p in dicionario['pontos']]
+        r.x2 = dicionario['x2']
+        r.y2 = dicionario['y2']
+        return r
 
 class Retangulo(FiguraPreenchida):
     def desenhar(self, canvas, tracejado=False):
@@ -71,6 +100,20 @@ class Retangulo(FiguraPreenchida):
             **self._opcoes_desenho(tracejado)
         )
 
+    def to_dict(self):
+        return {
+            'tipo': 'Retangulo',
+            'x1': self.x1,
+            'y1': self.y1,
+            'x2': self.x2,
+            'y2': self.y2,
+            'cor_borda': self.cor_borda,
+            'cor_preenchimento': self.cor_preenchimento,
+        }
+
+    @staticmethod
+    def from_dict(dicionario: dict):
+        return Retangulo(dicionario['x1'], dicionario['x2'], dicionario['y1'], dicionario['y2'], dicionario['cor_borda'], dicionario['cor_preenchimento'])
 
 class Oval(FiguraPreenchida):
     def desenhar(self, canvas, tracejado=False):
@@ -79,6 +122,20 @@ class Oval(FiguraPreenchida):
             **self._opcoes_desenho(tracejado)
         )
 
+    def to_dict(self):
+        return {
+            'tipo': 'Oval',
+            'x1': self.x1,
+            'y1': self.y1,
+            'x2': self.x2,
+            'y2': self.y2,
+            'cor_borda': self.cor_borda,
+            'cor_preenchimento': self.cor_preenchimento,
+        }
+
+    @staticmethod
+    def from_dict(dicionario: dict):
+        return Oval(dicionario['x1'], dicionario['x2'], dicionario['y1'], dicionario['y2'], dicionario['cor_borda'], dicionario['cor_preenchimento'])
 
 class Circulo(FiguraPreenchida):
     def desenhar(self, canvas, tracejado=False):
@@ -97,6 +154,20 @@ class Circulo(FiguraPreenchida):
             **self._opcoes_desenho(tracejado)
         )
 
+    def to_dict(self):
+        return {
+            'tipo': 'Circulo',
+            'x1': self.x1,
+            'y1': self.y1,
+            'x2': self.x2,
+            'y2': self.y2,
+            'cor_borda': self.cor_borda,
+            'cor_preenchimento': self.cor_preenchimento,
+        }
+
+    @staticmethod
+    def from_dict(dicionario: dict):
+        return Circulo(dicionario['x1'], dicionario['x2'], dicionario['y1'], dicionario['y2'], dicionario['cor_borda'], dicionario['cor_preenchimento'])
 
 class Poligono(FiguraPreenchida):
 
@@ -146,3 +217,46 @@ class Poligono(FiguraPreenchida):
                 fill=self.cor_borda,
                 dash=(4, 2) if tracejado else None
             )
+
+    def to_dict(self):
+        return {
+            'tipo': 'Poligono',
+            'x1': self.x1,
+            'y1': self.y1,
+            'x2': self.x2,
+            'y2': self.y2,
+            'cor_borda': self.cor_borda,
+            'cor_preenchimento': self.cor_preenchimento,
+            'pontos': [list(p) for p in self.pontos],
+            'finalizado': self.finalizado,
+        }
+
+    @staticmethod
+    def from_dict(dicionario: dict):
+        p = Poligono(dicionario['x1'], dicionario['y1'], dicionario['cor_borda'], dicionario['cor_preenchimento'])
+        p.pontos = [tuple(pt) for pt in dicionario['pontos']]
+        p.x2 = dicionario['x2']
+        p.y2 = dicionario['y2']
+        p.finalizado = dicionario['finalizado']
+        return p
+
+CLASSES_FIGURA = {
+    'Linha': Linha,
+    'Retangulo': Retangulo,
+    'Oval': Oval,
+    'Circulo': Circulo,
+}
+
+def figura_from_dict(dicionario: dict):
+    mapa = {
+        'Linha': Linha,
+        'Rabisco': Rabisco,
+        'Retangulo': Retangulo,
+        'Oval': Oval,
+        'Circulo': Circulo,
+        'Poligono': Poligono,
+    }
+    tipo = dicionario['tipo']
+    if tipo not in mapa:
+        raise ValueError(f'Tipo de figura desconhecido: {tipo}')
+    return mapa[tipo].from_dict(dicionario)
