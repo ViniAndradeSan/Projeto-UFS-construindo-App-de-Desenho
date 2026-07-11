@@ -34,6 +34,17 @@ class AreaDesenho:
         self.canvas.grid(column=0, row=3, columnspan=5, sticky=N, padx=5, pady=5)
 
     def atualizar(self, figuras, figura_em_processo=None):
+        """Atualiza o canvas renderizando todas as figuras.
+
+        Descrição:
+            Limpa e redesenha o canvas com as figuras completadas e a figura
+            em construção (com linha tracejada como pré-visualização).
+
+        Args:
+            figuras (list): Lista de figuras completadas para desenhar.
+            figura_em_processo (Figura, optional): Figura sendo construída.
+                Default(figura_em_processo): None.
+        """
         self.canvas.delete("all")
         for fig in figuras:
             fig.desenhar(self.canvas)

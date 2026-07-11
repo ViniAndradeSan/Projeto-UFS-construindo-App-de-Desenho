@@ -44,6 +44,15 @@ class Controlador:
         self.figura_nova = None
 
     def iniciar_figura_nova(self, event):
+        """Inicia a criação de uma nova figura baseada na seleção.
+
+        Descrição:
+            Cria uma instância da figura selecionada com o ponto inicial do evento.
+            Para polígonos, adiciona novos vértices; para outras formas, inicia.
+
+        Args:
+            event (tk.Event): Evento do mouse contendo as coordenadas x e y.
+        """
 
         tipo = self.tipo_figura_var.get()
 
@@ -72,6 +81,14 @@ class Controlador:
 
 
     def atualizar_figura_nova(self, event):
+        """Atualiza a posição final da figura em construção.
+
+        Descrição:
+            Modifica o ponto final da figura corrente durante o arrasto do mouse.
+
+        Args:
+            event (tk.Event): Evento do mouse com coordenadas x e y.
+        """
         if not self.figura_nova: 
             return
         self.figura_nova.atualizar(event.x, event.y)
@@ -79,11 +96,28 @@ class Controlador:
         self.area_desenho.atualizar(self.desenho.figuras, self.figura_nova)
 
     def mover_mouse(self, event):
+        """Evento de movimento do mouse para atualização de polígonos.
+
+        Descrição:
+            Atualiza a visão de pré-visualização para polígonos enquanto o mouse se move.
+
+        Args:
+            event (tk.Event): Evento de movimento do mouse.
+        """
         if self.figura_nova is not None and isinstance(self.figura_nova, Poligono):
             self.atualizar_figura_nova(event)
 
 
     def incluir_figura_nova(self, event):
+        """Finaliza a criação e adiciona a figura ao desenho.
+
+        Descrição:
+            Se a figura não está incompleta, adiciona-a ao desenho completado.
+            Ignora polígonos que precisam de finalização explícita.
+
+        Args:
+            event (tk.Event): Evento de liberação do botão do mouse.
+        """
         if self.figura_nova is None or isinstance(self.figura_nova, Poligono):
             return
 
@@ -96,6 +130,15 @@ class Controlador:
 
     # Duplo clique ou Enter: finaliza o Poligono em construção
     def finalizar_poligono(self, event):
+        """Finaliza a construção de um polígono e o adiciona ao desenho.
+
+        Descrição:
+            Marca o polígono como finalizado e adiciona-o ao desenho. Acionado
+            por duplo clique ou Press Enter.
+
+        Args:
+            event (tk.Event): Evento de duplo clique ou tecla de enter.
+        """
         if self.figura_nova is not None and isinstance(self.figura_nova, Poligono):
             self.figura_nova.finalizar()
             if not self.figura_nova.esta_incompleta():
@@ -106,11 +149,28 @@ class Controlador:
 
     # Esc: cancela o Poligono em construção
     def cancelar_figura_nova(self, event):
+        """Cancela a criação da figura atual.
+
+        Descrição:
+            Descarta a figura em construção sem adicioná-la ao desenho.
+            Acionado pela tecla Escape.
+
+        Args:
+            event (tk.Event): Evento de pressa da tecla Escape.
+        """
         if self.figura_nova is not None:
             self.figura_nova = None
             self.area_desenho.atualizar(self.desenho.figuras, self.figura_nova)
 
     def escolher_cor(self, tipo):
+        """Abre o diálogo de seleção de cor.
+
+        Descrição:
+            Exibe um diálogo do sistema para escolher cor de borda ou preenchimento.
+
+        Args:
+            tipo (str): 'b' para cor de borda ou 'p' para cor de preenchimento.
+        """
         cor = colorchooser.askcolor()
         if not cor[1]:
             return
@@ -122,20 +182,51 @@ class Controlador:
 
 
     def desfazer_ultimo(self, event=None):
+        """Desfaz a última figura adicionada ao desenho.
+
+        Descrião:
+            Remove e descarta a figura mais recente do desenho.
+
+        Args:
+            event (tk.Event, optional): Evento de teclado (Ctrl+Z). Default: None.
+        """
         self.desenho.desfazer()
         self.area_desenho.atualizar(self.desenho.figuras, self.figura_nova)
 
 
     def limpar_tudo(self):
+        """Remove todas as figuras do desenho.
+
+        Descrição:
+            Limpa completamente a área de desenho removendo todas as figuras.
+        """
         self.desenho.limpar()
         self.area_desenho.atualizar(self.desenho.figuras, self.figura_nova)
 
     def definir_variaveis(self, tipo_figura_var, cor_borda, cor_preenchimento):
+        """Define as variáveis de controle da barra de ferramentas.
+
+        Descrição:
+            Armazena referências às variáveis Tkinter de seleção de figura e cores.
+
+        Args:
+            tipo_figura_var (tk.StringVar): Variável de tipo de figura selecionado.
+            cor_borda (tk.StringVar): Variável de cor da borda.
+            cor_preenchimento (tk.StringVar): Variável de cor de preenchimento.
+        """
         self.tipo_figura_var = tipo_figura_var
         self.cor_borda = cor_borda
         self.cor_preenchimento = cor_preenchimento
 
     def abrir_para_edicao(self, event=None):
+        """Abre um diálogo para carregar um desenho de um arquivo.
+
+        Descrição:
+            Exibe o diálogo de arquivo do sistema para seleção de um JSON a carregar.
+
+        Args:
+            event (tk.Event, optional): Evento de teclado (Ctrl+O). Default(event): None.
+        """
         self.arquivo_dir = filedialog.askopenfilename(
             defaultextension='.json'
         )
@@ -145,6 +236,14 @@ class Controlador:
             self.area_desenho.atualizar(self.desenho.figuras, self.figura_nova)
 
     def salvar_para_edicao(self, event=None):
+        """Abre um diálogo para salvar o desenho em um arquivo.
+
+        Descrição:
+            Exibe o diálogo de arquivo do sistema para seleção do local de salvamento.
+
+        Args:
+            event (tk.Event, optional): Evento de teclado (Ctrl+S). Default(event): None.
+        """
         self.save_dir = filedialog.asksaveasfilename(
             defaultextension='.json'
         )

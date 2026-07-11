@@ -6,7 +6,7 @@ from visao import *
 #******* MAIN *******#
 
 root = Tk()
-root.title('Exemplo de aplicação')
+root.title('Ultra Mega Paint 3.0')
 frame = Frame(root)
 desenho = Desenho()
 area = AreaDesenho(frame)

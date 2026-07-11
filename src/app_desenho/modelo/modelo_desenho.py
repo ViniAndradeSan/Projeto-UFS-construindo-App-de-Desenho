@@ -37,37 +37,110 @@ class Desenho:
 
     @property
     def figuras(self):
+        """Retorna uma cópia da lista de figuras.
+
+        Descrição:
+            Fornece acesso à lista de figuras sem permitir modificações diretas.
+
+        Returns:
+            list: Cópia da lista de figuras atuais.
+        """
         return list(self._figuras)
     
     def adicionar(self, figura):
+        """Adiciona uma figura ao desenho.
+
+        Descrição:
+            Anexa uma figura completada à lista de figuras do desenho.
+
+        Args:
+            figura (Figura): Instância de uma figura completa para adicionar.
+        """
         self._figuras.append(figura)
 
     def desfazer(self):
+        """Remove e retorna a última figura adicionada.
+
+        Descrião:
+            Executa uma operação de desfazer removendo a figura do topo da pilha.
+
+        Returns:
+            Figura ou None: A última figura adicionada, ou None se a lista está vazia.
+        """
         if self._figuras:
             return self._figuras.pop()
 
     def limpar(self):
+        """Remove todas as figuras do desenho.
+
+        Descrição:
+            Limpa completamente a lista de figuras.
+        """
         self._figuras.clear()
 
     def criar(self):
-        pass
+        """Método para criar novo desenho.
+
+        Descrição:
+            Atualiza o estado do desenho para um novo estado vazio.
+        """
+        self.limpar()
 
     def esta_vazio(self):
+        """Verifica se o desenho não possui figuras.
+
+        Descrição:
+            Retorna verdadeiro se a lista de figuras está vazia.
+
+        Returns:
+            bool: True se não há figuras, False caso contrário.
+        """
         return len(self._figuras) == 0
 
     def to_dict(self):
+        """Serializa o desenho em dicionário.
+
+        Descrição:
+            Converte todas as figuras em dicionários para salvamento em JSON.
+
+        Returns:
+            dict: Dicionário com lista de figuras serializadas.
+        """
         return {
             'figuras': [f.to_dict() for f in self._figuras],
         }
 
     @staticmethod
     def from_dict(dicionario: dict):
+        """Desserializa um desenho a partir de um dicionário.
+
+        Descrição:
+            Reconstrói uma instância de Desenho com todas as figuras armazenadas.
+
+        Args:
+            dicionario (dict): Dicionário contendo dados de figuras serializadas.
+
+        Returns:
+            Desenho: Nova instância de Desenho com as figuras restauradas.
+        """
         modelo = Desenho()
         for figuradata in dicionario['figuras']:
             modelo._figuras.append(figura_from_dict(figuradata))
         return modelo
 
     def abrir(self, diretorio):
+        """Carrega um desenho a partir de um arquivo JSON.
+
+        Descrição:
+            Lê um arquivo JSON e reconstrói todas as figuras, limpando o estado atual.
+
+        Args:
+            diretorio (str): Caminho do arquivo JSON a ser carregado.
+
+        Raises:
+            FileNotFoundError: Se o arquivo não existir.
+            json.JSONDecodeError: Se o arquivo não for um JSON válido.
+        """
         with open(diretorio, 'r') as file:
             self.arquivo = json.load(file) 
         self.limpar()
@@ -77,6 +150,17 @@ class Desenho:
 
 
     def salvar(self, diretorio):
+        """Salva o desenho em um arquivo JSON.
+
+        Descrição:
+            Serializa todas as figuras e escreve em um arquivo JSON.
+
+        Args:
+            diretorio (str): Caminho do arquivo JSON onde salvar.
+
+        Raises:
+            IOError: Se não for possível escrever no arquivo.
+        """
         self.figuras_serializadas = self.to_dict()
         with open(diretorio, "w") as file:
             json.dump(self.figuras_serializadas, file, indent=4)
