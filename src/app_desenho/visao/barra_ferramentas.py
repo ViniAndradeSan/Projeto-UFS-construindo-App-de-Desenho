@@ -21,6 +21,15 @@ class BarraFerramentas:
     paddings = {'padx': 5, 'pady': 5}
 
     def __init__(self, frame, controlador):
+        """Inicializa a barra de ferramentas da interface.
+
+        Objetivo:
+            Criar controles de seleção de figura, cor e ações do aplicativo.
+
+        Args:
+            frame (tk.Frame): Frame pai onde os widgets serão posicionados.
+            controlador (Controlador): Controlador responsável por lidar com eventos.
+        """
         self.frame = frame
         self.controlador = controlador       
 

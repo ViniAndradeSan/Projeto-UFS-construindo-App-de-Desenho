@@ -20,6 +20,15 @@ class BarraMenu:
     """
 
     def __init__(self, root, controlador):
+        """Inicializa a barra de menu da aplicação.
+
+        Objetivo:
+            Criar o menu de arquivo e vincular atalhos de teclado.
+
+        Args:
+            root (tk.Tk): Janela principal da aplicação.
+            controlador (Controlador): Controlador que trata abrir e salvar.
+        """
         
         self.menu = tk.Menu(root)
         

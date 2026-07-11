@@ -20,6 +20,14 @@ class AreaDesenho:
     """
 
     def __init__(self, frame):
+        """Inicializa a área de desenho com um canvas branco.
+
+        Objetivo:
+            Criar a área gráfica onde as figuras serão exibidas.
+
+        Args:
+            frame (tk.Frame): Frame pai onde o canvas deve ser adicionado.
+        """
         self.frame = frame
         self.canvas = Canvas(frame, bg='white', width=800, height=600)
 

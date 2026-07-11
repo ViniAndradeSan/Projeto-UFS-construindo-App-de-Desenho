@@ -20,6 +20,18 @@ class Figura(ABC):
     """
 
     def __init__(self, x1, y1, x2, y2, cor_borda):
+        """Inicializa os atributos básicos de uma figura.
+
+        Objetivo:
+            Configurar as coordenadas de início e fim e a cor da borda.
+
+        Args:
+            x1 (int): Coordenada x do ponto inicial.
+            y1 (int): Coordenada y do ponto inicial.
+            x2 (int): Coordenada x do ponto final.
+            y2 (int): Coordenada y do ponto final.
+            cor_borda (str): Cor da borda para desenho.
+        """
         self.x1, self.y1, self.x2, self.y2 = x1, y1, x2, y2
         self.cor_borda = cor_borda
 
@@ -62,6 +74,19 @@ class FiguraPreenchida(Figura):
     """
 
     def __init__(self, x1, y1, x2, y2, cor_borda, cor_preenchimento):
+        """Inicializa uma figura com cor de preenchimento.
+
+        Objetivo:
+            Configurar coordenadas, cor de borda e cor de preenchimento.
+
+        Args:
+            x1 (int): Coordenada x do ponto inicial.
+            y1 (int): Coordenada y do ponto inicial.
+            x2 (int): Coordenada x do ponto final.
+            y2 (int): Coordenada y do ponto final.
+            cor_borda (str): Cor da borda.
+            cor_preenchimento (str): Cor de preenchimento interno.
+        """
         super().__init__(x1,y1,x2,y2,cor_borda)
         self.cor_preenchimento = cor_preenchimento
 
@@ -128,6 +153,16 @@ class Rabisco(Figura):
     """
 
     def __init__(self, x1, y1, cor_borda):
+        """Inicializa um rabisco livre com o ponto inicial.
+
+        Objetivo:
+            Criar um traço em construção armazenando o primeiro ponto.
+
+        Args:
+            x1 (int): Coordenada x inicial do rabisco.
+            y1 (int): Coordenada y inicial do rabisco.
+            cor_borda (str): Cor da linha do rabisco.
+        """
         super().__init__(x1, y1, x1, y1, cor_borda)
         self.pontos = [(x1,y1)]
 
@@ -305,6 +340,17 @@ class Poligono(FiguraPreenchida):
     """
 
     def __init__(self, x, y, cor_borda, cor_preenchimento):
+        """Inicializa um polígono em construção com o primeiro vértice.
+
+        Objetivo:
+            Criar a estrutura de pontos e configurar cores para o polígono.
+
+        Args:
+            x (int): Coordenada x do primeiro vértice.
+            y (int): Coordenada y do primeiro vértice.
+            cor_borda (str): Cor da borda do polígono.
+            cor_preenchimento (str): Cor de preenchimento do polígono.
+        """
         self.pontos = [(x, y)]
         self.x1, self.y1 = x, y
         self.x2, self.y2 = x, y

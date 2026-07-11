@@ -21,6 +21,14 @@ class Desenho:
     """
 
     def __init__(self):
+        """Inicializa o modelo de desenho com sua lista interna vazia.
+
+        Objetivo:
+            Preparar o estado inicial do desenho para receber figuras.
+
+        Args:
+            Nenhum
+        """
         self._figuras = []
         self._figura_atual = []
         self._cor_borda = []

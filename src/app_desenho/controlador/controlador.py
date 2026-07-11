@@ -29,6 +29,16 @@ class Controlador:
     }
 
     def __init__(self, desenho, area_desenho):
+        """Inicializa o controlador da aplicação.
+
+        Objetivo:
+            Conectar o modelo de desenho e a área de visualização para utilizar o
+            modo de criação de figuras.
+
+        Args:
+            desenho (Desenho): Instância do modelo de desenho.
+            area_desenho (AreaDesenho): Área gráfica onde as figuras são mostradas.
+        """
         self.desenho = desenho
         self.area_desenho = area_desenho
         self.figura_nova = None
