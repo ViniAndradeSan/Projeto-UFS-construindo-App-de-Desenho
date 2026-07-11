@@ -24,6 +24,7 @@ area.canvas.bind('<Double-Button-1>', controlador.finalizar_poligono)
 # Eventos de teclado para finalizar/cancelar o Poligono
 root.bind('<Return>', controlador.finalizar_poligono)
 root.bind('<Escape>', controlador.cancelar_figura_nova)
+root.bind('<Control-z>', controlador.desfazer_ultimo)
 
 frame.pack()
 root.mainloop()

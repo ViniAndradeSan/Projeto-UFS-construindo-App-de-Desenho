@@ -94,7 +94,7 @@ class Controlador:
             self.cor_preenchimento.set(cor[1])
 
 
-    def desfazer_ultimo(self):
+    def desfazer_ultimo(self, event=None):
         self.desenho.desfazer()
         self.area_desenho.atualizar(self.desenho.figuras, self.figura_nova)
 
@@ -108,7 +108,7 @@ class Controlador:
         self.cor_borda = cor_borda
         self.cor_preenchimento = cor_preenchimento
 
-    def abrir_para_edicao(self):
+    def abrir_para_edicao(self, event=None):
         self.arquivo_dir = filedialog.askopenfilename(
             defaultextension='.json'
         )
@@ -117,7 +117,7 @@ class Controlador:
             self.desenho.abrir(diretorio=self.arquivo_dir)
             self.area_desenho.atualizar(self.desenho.figuras, self.figura_nova)
 
-    def salvar_para_edicao(self):
+    def salvar_para_edicao(self, event=None):
         self.save_dir = filedialog.asksaveasfilename(
             defaultextension='.json'
         )
