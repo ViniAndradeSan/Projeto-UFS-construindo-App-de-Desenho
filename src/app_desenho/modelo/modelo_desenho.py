@@ -41,7 +41,16 @@ class Desenho:
             modelo._figuras.append(figura_from_dict(figuradata))
         return modelo
 
+    def abrir(self, diretorio):
+        with open(diretorio, 'r') as file:
+            self.arquivo = json.load(file) 
+        self.limpar()
+        for figura_dict in self.arquivo["figuras"]:
+            figura = figura_from_dict(figura_dict)
+            self._figuras.append(figura)
+
+
     def salvar(self, diretorio):
         self.figuras_serializadas = self.to_dict()
         with open(diretorio, "w") as file:
-            json.dump(self.figuras_serializadas, file)
+            json.dump(self.figuras_serializadas, file, indent=4)

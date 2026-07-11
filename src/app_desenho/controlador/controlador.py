@@ -108,9 +108,17 @@ class Controlador:
         self.cor_borda = cor_borda
         self.cor_preenchimento = cor_preenchimento
 
+    def abrir_para_edicao(self):
+        self.arquivo_dir = filedialog.askopenfilename(
+            defaultextension='.json'
+        )
+
+        if self.arquivo_dir:
+            self.desenho.abrir(diretorio=self.arquivo_dir)
+            self.area_desenho.atualizar(self.desenho.figuras, self.figura_nova)
+
     def salvar_para_edicao(self):
         self.save_dir = filedialog.asksaveasfilename(
-            title="Escolha o nome do desenho.",
             defaultextension='.json'
         )
         

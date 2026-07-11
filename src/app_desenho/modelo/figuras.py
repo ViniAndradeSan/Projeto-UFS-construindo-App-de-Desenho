@@ -56,7 +56,7 @@ class Linha(Figura):
 
     @staticmethod
     def from_dict(dicionario: dict):
-        return Linha(dicionario['x1'], dicionario['x2'], dicionario['y1'], dicionario['y2'], dicionario['cor_borda'])
+        return Linha(dicionario['x1'], dicionario['y1'], dicionario['x2'], dicionario['y2'], dicionario['cor_borda'])
 
 class Rabisco(Figura):
     def __init__(self, x1, y1, cor_borda):
@@ -113,7 +113,7 @@ class Retangulo(FiguraPreenchida):
 
     @staticmethod
     def from_dict(dicionario: dict):
-        return Retangulo(dicionario['x1'], dicionario['x2'], dicionario['y1'], dicionario['y2'], dicionario['cor_borda'], dicionario['cor_preenchimento'])
+        return Retangulo(dicionario['x1'], dicionario['y1'], dicionario['x2'], dicionario['y2'], dicionario['cor_borda'], dicionario['cor_preenchimento'])
 
 class Oval(FiguraPreenchida):
     def desenhar(self, canvas, tracejado=False):
@@ -135,7 +135,7 @@ class Oval(FiguraPreenchida):
 
     @staticmethod
     def from_dict(dicionario: dict):
-        return Oval(dicionario['x1'], dicionario['x2'], dicionario['y1'], dicionario['y2'], dicionario['cor_borda'], dicionario['cor_preenchimento'])
+        return Oval(dicionario['x1'], dicionario['y1'], dicionario['x2'], dicionario['y2'], dicionario['cor_borda'], dicionario['cor_preenchimento'])
 
 class Circulo(FiguraPreenchida):
     def desenhar(self, canvas, tracejado=False):
@@ -167,7 +167,7 @@ class Circulo(FiguraPreenchida):
 
     @staticmethod
     def from_dict(dicionario: dict):
-        return Circulo(dicionario['x1'], dicionario['x2'], dicionario['y1'], dicionario['y2'], dicionario['cor_borda'], dicionario['cor_preenchimento'])
+        return Circulo(dicionario['x1'], dicionario['y1'], dicionario['x2'], dicionario['y2'], dicionario['cor_borda'], dicionario['cor_preenchimento'])
 
 class Poligono(FiguraPreenchida):
 
