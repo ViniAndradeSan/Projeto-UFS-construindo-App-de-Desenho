@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module app_desenho.controlador.controlador</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="app_desenho.html" class="white">app_desenho</a>.<a href="app_desenho.controlador.html" class="white">controlador</a>.controlador</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cvinic%5Cdownloads%5Cprojeto-ufs-construindo-app-de-desenho-main%5Cprojeto-ufs-construindo-app-de-desenho-main%5Csrc%5Capp_desenho%5Ccontrolador%5Ccontrolador.py">c:\users\vinic\downloads\projeto-ufs-construindo-app-de-desenho-main\projeto-ufs-construindo-app-de-desenho-main\src\app_desenho\controlador\controlador.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="tkinter.colorchooser.html">tkinter.colorchooser</a><br>
+</td><td class="multicolumn"><a href="tkinter.filedialog.html">tkinter.filedialog</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="app_desenho.controlador.controlador.html#Controlador">Controlador</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Controlador">class <strong>Controlador</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Controlador">Controlador</a>(desenho,&nbsp;area_desenho)<br>
+&nbsp;<br>
+<a href="#Controlador">Controlador</a>&nbsp;da&nbsp;aplicação&nbsp;de&nbsp;desenho&nbsp;que&nbsp;liga&nbsp;modelo&nbsp;e&nbsp;visão.<br>
+&nbsp;<br>
+Finalidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Gerenciar&nbsp;a&nbsp;criação,&nbsp;atualização&nbsp;e&nbsp;inclusão&nbsp;de&nbsp;figuras&nbsp;no&nbsp;desenho.<br>
+&nbsp;<br>
+Responsabilidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Receber&nbsp;eventos&nbsp;de&nbsp;mouse&nbsp;e&nbsp;teclado,&nbsp;controlar&nbsp;a&nbsp;figura&nbsp;em&nbsp;construção,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;executar&nbsp;desfazer/limpar&nbsp;e&nbsp;tratar&nbsp;operações&nbsp;de&nbsp;abrir/salvar.<br>
+&nbsp;<br>
+Uso:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Instanciar&nbsp;com&nbsp;`<a href="#Controlador">Controlador</a>(desenho,&nbsp;area_desenho)`&nbsp;e&nbsp;conectar&nbsp;eventos&nbsp;do<br>
+&nbsp;&nbsp;&nbsp;&nbsp;canvas&nbsp;e&nbsp;da&nbsp;interface&nbsp;gráfica.<br>
+&nbsp;<br>
+@author&nbsp;Vinicius<br>
+@version&nbsp;1.0<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Controlador-__init__"><strong>__init__</strong></a>(self, desenho, area_desenho)</dt><dd><span class="code">Inicializa&nbsp;o&nbsp;controlador&nbsp;da&nbsp;aplicação.<br>
+&nbsp;<br>
+Objetivo:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Conectar&nbsp;o&nbsp;modelo&nbsp;de&nbsp;desenho&nbsp;e&nbsp;a&nbsp;área&nbsp;de&nbsp;visualização&nbsp;para&nbsp;utilizar&nbsp;o<br>
+&nbsp;&nbsp;&nbsp;&nbsp;modo&nbsp;de&nbsp;criação&nbsp;de&nbsp;figuras.<br>
+&nbsp;<br>
+@param&nbsp;desenho&nbsp;(Desenho):&nbsp;Instância&nbsp;do&nbsp;modelo&nbsp;de&nbsp;desenho.<br>
+@param&nbsp;area_desenho&nbsp;(AreaDesenho):&nbsp;Área&nbsp;gráfica&nbsp;onde&nbsp;as&nbsp;figuras&nbsp;são&nbsp;mostradas.</span></dd></dl>
+
+<dl><dt><a name="Controlador-abrir_para_edicao"><strong>abrir_para_edicao</strong></a>(self, event=None)</dt><dd><span class="code">Abre&nbsp;um&nbsp;diálogo&nbsp;para&nbsp;carregar&nbsp;um&nbsp;desenho&nbsp;de&nbsp;um&nbsp;arquivo.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Exibe&nbsp;o&nbsp;diálogo&nbsp;de&nbsp;arquivo&nbsp;do&nbsp;sistema&nbsp;para&nbsp;seleção&nbsp;de&nbsp;um&nbsp;JSON&nbsp;a&nbsp;carregar.<br>
+&nbsp;<br>
+@param&nbsp;event&nbsp;(tk.Event,&nbsp;optional):&nbsp;Evento&nbsp;de&nbsp;teclado&nbsp;(Ctrl+O).&nbsp;Default(event):&nbsp;None.</span></dd></dl>
+
+<dl><dt><a name="Controlador-atualizar_figura_nova"><strong>atualizar_figura_nova</strong></a>(self, event)</dt><dd><span class="code">Atualiza&nbsp;a&nbsp;posição&nbsp;final&nbsp;da&nbsp;figura&nbsp;em&nbsp;construção.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Modifica&nbsp;o&nbsp;ponto&nbsp;final&nbsp;da&nbsp;figura&nbsp;corrente&nbsp;durante&nbsp;o&nbsp;arrasto&nbsp;do&nbsp;mouse.<br>
+&nbsp;<br>
+@param&nbsp;event&nbsp;(tk.Event):&nbsp;Evento&nbsp;do&nbsp;mouse&nbsp;com&nbsp;coordenadas&nbsp;x&nbsp;e&nbsp;y.</span></dd></dl>
+
+<dl><dt><a name="Controlador-cancelar_figura_nova"><strong>cancelar_figura_nova</strong></a>(self, event)</dt><dd><span class="code">Cancela&nbsp;a&nbsp;criação&nbsp;da&nbsp;figura&nbsp;atual.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Descarta&nbsp;a&nbsp;figura&nbsp;em&nbsp;construção&nbsp;sem&nbsp;adicioná-la&nbsp;ao&nbsp;desenho.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Acionado&nbsp;pela&nbsp;tecla&nbsp;Escape.<br>
+&nbsp;<br>
+@param&nbsp;event&nbsp;(tk.Event):&nbsp;Evento&nbsp;de&nbsp;pressa&nbsp;da&nbsp;tecla&nbsp;Escape.</span></dd></dl>
+
+<dl><dt><a name="Controlador-definir_variaveis"><strong>definir_variaveis</strong></a>(self, tipo_figura_var, cor_borda, cor_preenchimento)</dt><dd><span class="code">Define&nbsp;as&nbsp;variáveis&nbsp;de&nbsp;controle&nbsp;da&nbsp;barra&nbsp;de&nbsp;ferramentas.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Armazena&nbsp;referências&nbsp;às&nbsp;variáveis&nbsp;Tkinter&nbsp;de&nbsp;seleção&nbsp;de&nbsp;figura&nbsp;e&nbsp;cores.<br>
+&nbsp;<br>
+@param&nbsp;tipo_figura_var&nbsp;(tk.StringVar):&nbsp;Variável&nbsp;de&nbsp;tipo&nbsp;de&nbsp;figura&nbsp;selecionado.<br>
+@param&nbsp;cor_borda&nbsp;(tk.StringVar):&nbsp;Variável&nbsp;de&nbsp;cor&nbsp;da&nbsp;borda.<br>
+@param&nbsp;cor_preenchimento&nbsp;(tk.StringVar):&nbsp;Variável&nbsp;de&nbsp;cor&nbsp;de&nbsp;preenchimento.</span></dd></dl>
+
+<dl><dt><a name="Controlador-desfazer_ultimo"><strong>desfazer_ultimo</strong></a>(self, event=None)</dt><dd><span class="code">Desfaz&nbsp;a&nbsp;última&nbsp;figura&nbsp;adicionada&nbsp;ao&nbsp;desenho.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Remove&nbsp;e&nbsp;descarta&nbsp;a&nbsp;figura&nbsp;mais&nbsp;recente&nbsp;do&nbsp;desenho.<br>
+&nbsp;<br>
+@param&nbsp;event&nbsp;(tk.Event,&nbsp;optional):&nbsp;Evento&nbsp;de&nbsp;teclado&nbsp;(Ctrl+Z).&nbsp;Default:&nbsp;None.</span></dd></dl>
+
+<dl><dt><a name="Controlador-escolher_cor"><strong>escolher_cor</strong></a>(self, tipo)</dt><dd><span class="code">Abre&nbsp;o&nbsp;diálogo&nbsp;de&nbsp;seleção&nbsp;de&nbsp;cor.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Exibe&nbsp;um&nbsp;diálogo&nbsp;do&nbsp;sistema&nbsp;para&nbsp;escolher&nbsp;cor&nbsp;de&nbsp;borda&nbsp;ou&nbsp;preenchimento.<br>
+&nbsp;<br>
+@param&nbsp;tipo&nbsp;(str):&nbsp;'b'&nbsp;para&nbsp;cor&nbsp;de&nbsp;borda&nbsp;ou&nbsp;'p'&nbsp;para&nbsp;cor&nbsp;de&nbsp;preenchimento.</span></dd></dl>
+
+<dl><dt><a name="Controlador-finalizar_poligono"><strong>finalizar_poligono</strong></a>(self, event)</dt><dd><span class="code">Finaliza&nbsp;a&nbsp;construção&nbsp;de&nbsp;um&nbsp;polígono&nbsp;e&nbsp;o&nbsp;adiciona&nbsp;ao&nbsp;desenho.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Marca&nbsp;o&nbsp;polígono&nbsp;como&nbsp;finalizado&nbsp;e&nbsp;adiciona-o&nbsp;ao&nbsp;desenho.&nbsp;Acionado<br>
+&nbsp;&nbsp;&nbsp;&nbsp;por&nbsp;duplo&nbsp;clique&nbsp;ou&nbsp;Press&nbsp;Enter.<br>
+&nbsp;<br>
+@param&nbsp;event&nbsp;(tk.Event):&nbsp;Evento&nbsp;de&nbsp;duplo&nbsp;clique&nbsp;ou&nbsp;tecla&nbsp;de&nbsp;enter.</span></dd></dl>
+
+<dl><dt><a name="Controlador-incluir_figura_nova"><strong>incluir_figura_nova</strong></a>(self, event)</dt><dd><span class="code">Finaliza&nbsp;a&nbsp;criação&nbsp;e&nbsp;adiciona&nbsp;a&nbsp;figura&nbsp;ao&nbsp;desenho.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Se&nbsp;a&nbsp;figura&nbsp;não&nbsp;está&nbsp;incompleta,&nbsp;adiciona-a&nbsp;ao&nbsp;desenho&nbsp;completado.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Ignora&nbsp;polígonos&nbsp;que&nbsp;precisam&nbsp;de&nbsp;finalização&nbsp;explícita.<br>
+&nbsp;<br>
+@param&nbsp;event&nbsp;(tk.Event):&nbsp;Evento&nbsp;de&nbsp;liberação&nbsp;do&nbsp;botão&nbsp;do&nbsp;mouse.</span></dd></dl>
+
+<dl><dt><a name="Controlador-iniciar_figura_nova"><strong>iniciar_figura_nova</strong></a>(self, event)</dt><dd><span class="code">Inicia&nbsp;a&nbsp;criação&nbsp;de&nbsp;uma&nbsp;nova&nbsp;figura&nbsp;baseada&nbsp;na&nbsp;seleção.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Cria&nbsp;uma&nbsp;instância&nbsp;da&nbsp;figura&nbsp;selecionada&nbsp;com&nbsp;o&nbsp;ponto&nbsp;inicial&nbsp;do&nbsp;evento.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Para&nbsp;polígonos,&nbsp;adiciona&nbsp;novos&nbsp;vértices;&nbsp;para&nbsp;outras&nbsp;formas,&nbsp;inicia.<br>
+&nbsp;<br>
+@param&nbsp;event&nbsp;(tk.Event):&nbsp;Evento&nbsp;do&nbsp;mouse&nbsp;contendo&nbsp;as&nbsp;coordenadas&nbsp;x&nbsp;e&nbsp;y.</span></dd></dl>
+
+<dl><dt><a name="Controlador-limpar_tudo"><strong>limpar_tudo</strong></a>(self)</dt><dd><span class="code">Remove&nbsp;todas&nbsp;as&nbsp;figuras&nbsp;do&nbsp;desenho.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Limpa&nbsp;completamente&nbsp;a&nbsp;área&nbsp;de&nbsp;desenho&nbsp;removendo&nbsp;todas&nbsp;as&nbsp;figuras.</span></dd></dl>
+
+<dl><dt><a name="Controlador-mover_mouse"><strong>mover_mouse</strong></a>(self, event)</dt><dd><span class="code">Evento&nbsp;de&nbsp;movimento&nbsp;do&nbsp;mouse&nbsp;para&nbsp;atualização&nbsp;de&nbsp;polígonos.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Atualiza&nbsp;a&nbsp;visão&nbsp;de&nbsp;pré-visualização&nbsp;para&nbsp;polígonos&nbsp;enquanto&nbsp;o&nbsp;mouse&nbsp;se&nbsp;move.<br>
+&nbsp;<br>
+@param&nbsp;event&nbsp;(tk.Event):&nbsp;Evento&nbsp;de&nbsp;movimento&nbsp;do&nbsp;mouse.</span></dd></dl>
+
+<dl><dt><a name="Controlador-salvar_para_edicao"><strong>salvar_para_edicao</strong></a>(self, event=None)</dt><dd><span class="code">Abre&nbsp;um&nbsp;diálogo&nbsp;para&nbsp;salvar&nbsp;o&nbsp;desenho&nbsp;em&nbsp;um&nbsp;arquivo.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Exibe&nbsp;o&nbsp;diálogo&nbsp;de&nbsp;arquivo&nbsp;do&nbsp;sistema&nbsp;para&nbsp;seleção&nbsp;do&nbsp;local&nbsp;de&nbsp;salvamento.<br>
+&nbsp;<br>
+@param&nbsp;event&nbsp;(tk.Event,&nbsp;optional):&nbsp;Evento&nbsp;de&nbsp;teclado&nbsp;(Ctrl+S).&nbsp;Default(event):&nbsp;None.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>CLASSES_FIGURA</strong> = {'Circulo': &lt;class 'modelo.figuras.Circulo'&gt;, 'Linha': &lt;class 'modelo.figuras.Linha'&gt;, 'Oval': &lt;class 'modelo.figuras.Oval'&gt;, 'Retangulo': &lt;class 'modelo.figuras.Retangulo'&gt;}</dl>
+
+</td></tr></table></td></tr></table>
+</body></html>

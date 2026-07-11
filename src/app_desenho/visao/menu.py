@@ -15,8 +15,8 @@ class BarraMenu:
         Instanciar com `BarraMenu(root, controlador)` depois de criar a janela
         principal (`root`) e o controlador.
 
-    Autor: Danillo
-    Versão: 1.0
+    @author Danillo
+    @version 1.0
     """
 
     def __init__(self, root, controlador):
@@ -25,9 +25,8 @@ class BarraMenu:
         Objetivo:
             Criar o menu de arquivo e vincular atalhos de teclado.
 
-        Args:
-            root (tk.Tk): Janela principal da aplicação.
-            controlador (Controlador): Controlador que trata abrir e salvar.
+        @param root (tk.Tk): Janela principal da aplicação.
+        @param controlador (Controlador): Controlador que trata abrir e salvar.
         """
         
         self.menu = tk.Menu(root)

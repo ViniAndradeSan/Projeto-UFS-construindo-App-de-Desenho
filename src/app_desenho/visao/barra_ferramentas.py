@@ -14,8 +14,8 @@ class BarraFerramentas:
         Instanciar com `BarraFerramentas(frame, controlador)` após criar o
         controlador do desenho.
 
-    Autor: Danillo
-    Versão: 1.0
+    @author Danillo
+    @version 1.0
     """
 
     paddings = {'padx': 5, 'pady': 5}
@@ -26,9 +26,8 @@ class BarraFerramentas:
         Objetivo:
             Criar controles de seleção de figura, cor e ações do aplicativo.
 
-        Args:
-            frame (tk.Frame): Frame pai onde os widgets serão posicionados.
-            controlador (Controlador): Controlador responsável por lidar com eventos.
+        @param frame (tk.Frame): Frame pai onde os widgets serão posicionados.
+        @param controlador (Controlador): Controlador responsável por lidar com eventos.
         """
         self.frame = frame
         self.controlador = controlador       

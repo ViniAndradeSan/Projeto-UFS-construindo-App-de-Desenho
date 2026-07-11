@@ -15,8 +15,8 @@ class AreaDesenho:
         Instanciar com `AreaDesenho(frame)` e chamar `atualizar(figuras,
         figura_em_processo)` quando o estado do desenho mudar.
 
-    Autor: Danillo
-    Versão: 1.0
+    @author Danillo
+    @version 1.0
     """
 
     def __init__(self, frame):
@@ -25,8 +25,7 @@ class AreaDesenho:
         Objetivo:
             Criar a área gráfica onde as figuras serão exibidas.
 
-        Args:
-            frame (tk.Frame): Frame pai onde o canvas deve ser adicionado.
+        @param frame (tk.Frame): Frame pai onde o canvas deve ser adicionado.
         """
         self.frame = frame
         self.canvas = Canvas(frame, bg='white', width=800, height=600)
@@ -40,10 +39,9 @@ class AreaDesenho:
             Limpa e redesenha o canvas com as figuras completadas e a figura
             em construção (com linha tracejada como pré-visualização).
 
-        Args:
-            figuras (list): Lista de figuras completadas para desenhar.
-            figura_em_processo (Figura, optional): Figura sendo construída.
-                Default(figura_em_processo): None.
+        @param figuras (list): Lista de figuras completadas para desenhar.
+        @param figura_em_processo (Figura, optional): Figura sendo construída.
+        @param Default(figura_em_processo): None.
         """
         self.canvas.delete("all")
         for fig in figuras:

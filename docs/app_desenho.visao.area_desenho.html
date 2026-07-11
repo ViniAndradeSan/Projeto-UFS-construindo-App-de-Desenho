@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module app_desenho.visao.area_desenho</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="app_desenho.html" class="white">app_desenho</a>.<a href="app_desenho.visao.html" class="white">visao</a>.area_desenho</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cvinic%5Cdownloads%5Cprojeto-ufs-construindo-app-de-desenho-main%5Cprojeto-ufs-construindo-app-de-desenho-main%5Csrc%5Capp_desenho%5Cvisao%5Carea_desenho.py">c:\users\vinic\downloads\projeto-ufs-construindo-app-de-desenho-main\projeto-ufs-construindo-app-de-desenho-main\src\app_desenho\visao\area_desenho.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="app_desenho.visao.area_desenho.html#AreaDesenho">AreaDesenho</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="AreaDesenho">class <strong>AreaDesenho</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#AreaDesenho">AreaDesenho</a>(frame)<br>
+&nbsp;<br>
+Área&nbsp;de&nbsp;desenho&nbsp;responsável&nbsp;por&nbsp;exibir&nbsp;as&nbsp;figuras&nbsp;no&nbsp;canvas.<br>
+&nbsp;<br>
+Finalidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Renderizar&nbsp;figuras&nbsp;existentes&nbsp;e&nbsp;a&nbsp;figura&nbsp;em&nbsp;construção&nbsp;dentro&nbsp;da&nbsp;área&nbsp;do<br>
+&nbsp;&nbsp;&nbsp;&nbsp;aplicativo.<br>
+&nbsp;<br>
+Responsabilidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Criar&nbsp;o&nbsp;canvas,&nbsp;atualizar&nbsp;sua&nbsp;exibição&nbsp;e&nbsp;redesenhar&nbsp;todas&nbsp;as&nbsp;figuras<br>
+&nbsp;&nbsp;&nbsp;&nbsp;conforme&nbsp;o&nbsp;estado&nbsp;atual&nbsp;do&nbsp;desenho.<br>
+&nbsp;<br>
+Uso:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Instanciar&nbsp;com&nbsp;`<a href="#AreaDesenho">AreaDesenho</a>(frame)`&nbsp;e&nbsp;chamar&nbsp;`<a href="#AreaDesenho-atualizar">atualizar</a>(figuras,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;figura_em_processo)`&nbsp;quando&nbsp;o&nbsp;estado&nbsp;do&nbsp;desenho&nbsp;mudar.<br>
+&nbsp;<br>
+@author&nbsp;Danillo<br>
+@version&nbsp;1.0<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="AreaDesenho-__init__"><strong>__init__</strong></a>(self, frame)</dt><dd><span class="code">Inicializa&nbsp;a&nbsp;área&nbsp;de&nbsp;desenho&nbsp;com&nbsp;um&nbsp;canvas&nbsp;branco.<br>
+&nbsp;<br>
+Objetivo:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Criar&nbsp;a&nbsp;área&nbsp;gráfica&nbsp;onde&nbsp;as&nbsp;figuras&nbsp;serão&nbsp;exibidas.<br>
+&nbsp;<br>
+@param&nbsp;frame&nbsp;(tk.Frame):&nbsp;Frame&nbsp;pai&nbsp;onde&nbsp;o&nbsp;canvas&nbsp;deve&nbsp;ser&nbsp;adicionado.</span></dd></dl>
+
+<dl><dt><a name="AreaDesenho-atualizar"><strong>atualizar</strong></a>(self, figuras, figura_em_processo=None)</dt><dd><span class="code">Atualiza&nbsp;o&nbsp;canvas&nbsp;renderizando&nbsp;todas&nbsp;as&nbsp;figuras.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Limpa&nbsp;e&nbsp;redesenha&nbsp;o&nbsp;canvas&nbsp;com&nbsp;as&nbsp;figuras&nbsp;completadas&nbsp;e&nbsp;a&nbsp;figura<br>
+&nbsp;&nbsp;&nbsp;&nbsp;em&nbsp;construção&nbsp;(com&nbsp;linha&nbsp;tracejada&nbsp;como&nbsp;pré-visualização).<br>
+&nbsp;<br>
+@param&nbsp;figuras&nbsp;(list):&nbsp;Lista&nbsp;de&nbsp;figuras&nbsp;completadas&nbsp;para&nbsp;desenhar.<br>
+@param&nbsp;figura_em_processo&nbsp;(Figura,&nbsp;optional):&nbsp;Figura&nbsp;sendo&nbsp;construída.<br>
+@param&nbsp;Default(figura_em_processo):&nbsp;None.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>ACTIVE</strong> = 'active'<br>
+<strong>ALL</strong> = 'all'<br>
+<strong>ANCHOR</strong> = 'anchor'<br>
+<strong>ARC</strong> = 'arc'<br>
+<strong>BASELINE</strong> = 'baseline'<br>
+<strong>BEVEL</strong> = 'bevel'<br>
+<strong>BOTH</strong> = 'both'<br>
+<strong>BOTTOM</strong> = 'bottom'<br>
+<strong>BROWSE</strong> = 'browse'<br>
+<strong>BUTT</strong> = 'butt'<br>
+<strong>CASCADE</strong> = 'cascade'<br>
+<strong>CENTER</strong> = 'center'<br>
+<strong>CHAR</strong> = 'char'<br>
+<strong>CHECKBUTTON</strong> = 'checkbutton'<br>
+<strong>CHORD</strong> = 'chord'<br>
+<strong>COMMAND</strong> = 'command'<br>
+<strong>CURRENT</strong> = 'current'<br>
+<strong>DISABLED</strong> = 'disabled'<br>
+<strong>DOTBOX</strong> = 'dotbox'<br>
+<strong>E</strong> = 'e'<br>
+<strong>END</strong> = 'end'<br>
+<strong>EW</strong> = 'ew'<br>
+<strong>EXCEPTION</strong> = 8<br>
+<strong>EXTENDED</strong> = 'extended'<br>
+<strong>FALSE</strong> = 0<br>
+<strong>FIRST</strong> = 'first'<br>
+<strong>FLAT</strong> = 'flat'<br>
+<strong>GROOVE</strong> = 'groove'<br>
+<strong>HIDDEN</strong> = 'hidden'<br>
+<strong>HORIZONTAL</strong> = 'horizontal'<br>
+<strong>INSERT</strong> = 'insert'<br>
+<strong>INSIDE</strong> = 'inside'<br>
+<strong>LAST</strong> = 'last'<br>
+<strong>LEFT</strong> = 'left'<br>
+<strong>MITER</strong> = 'miter'<br>
+<strong>MOVETO</strong> = 'moveto'<br>
+<strong>MULTIPLE</strong> = 'multiple'<br>
+<strong>N</strong> = 'n'<br>
+<strong>NE</strong> = 'ne'<br>
+<strong>NO</strong> = 0<br>
+<strong>NONE</strong> = 'none'<br>
+<strong>NORMAL</strong> = 'normal'<br>
+<strong>NS</strong> = 'ns'<br>
+<strong>NSEW</strong> = 'nsew'<br>
+<strong>NUMERIC</strong> = 'numeric'<br>
+<strong>NW</strong> = 'nw'<br>
+<strong>OFF</strong> = 0<br>
+<strong>ON</strong> = 1<br>
+<strong>OUTSIDE</strong> = 'outside'<br>
+<strong>PAGES</strong> = 'pages'<br>
+<strong>PIESLICE</strong> = 'pieslice'<br>
+<strong>PROJECTING</strong> = 'projecting'<br>
+<strong>RADIOBUTTON</strong> = 'radiobutton'<br>
+<strong>RAISED</strong> = 'raised'<br>
+<strong>READABLE</strong> = 2<br>
+<strong>RIDGE</strong> = 'ridge'<br>
+<strong>RIGHT</strong> = 'right'<br>
+<strong>ROUND</strong> = 'round'<br>
+<strong>S</strong> = 's'<br>
+<strong>SCROLL</strong> = 'scroll'<br>
+<strong>SE</strong> = 'se'<br>
+<strong>SEL</strong> = 'sel'<br>
+<strong>SEL_FIRST</strong> = 'sel.first'<br>
+<strong>SEL_LAST</strong> = 'sel.last'<br>
+<strong>SEPARATOR</strong> = 'separator'<br>
+<strong>SINGLE</strong> = 'single'<br>
+<strong>SOLID</strong> = 'solid'<br>
+<strong>SUNKEN</strong> = 'sunken'<br>
+<strong>SW</strong> = 'sw'<br>
+<strong>TOP</strong> = 'top'<br>
+<strong>TRUE</strong> = 1<br>
+<strong>TclVersion</strong> = 8.6<br>
+<strong>TkVersion</strong> = 8.6<br>
+<strong>UNDERLINE</strong> = 'underline'<br>
+<strong>UNITS</strong> = 'units'<br>
+<strong>VERTICAL</strong> = 'vertical'<br>
+<strong>W</strong> = 'w'<br>
+<strong>WORD</strong> = 'word'<br>
+<strong>WRITABLE</strong> = 4<br>
+<strong>X</strong> = 'x'<br>
+<strong>Y</strong> = 'y'<br>
+<strong>YES</strong> = 1</td></tr></table>
+</body></html>

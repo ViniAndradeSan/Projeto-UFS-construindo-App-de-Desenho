@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module app_desenho.modelo.modelo_desenho</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="app_desenho.html" class="white">app_desenho</a>.<a href="app_desenho.modelo.html" class="white">modelo</a>.modelo_desenho</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cvinic%5Cdownloads%5Cprojeto-ufs-construindo-app-de-desenho-main%5Cprojeto-ufs-construindo-app-de-desenho-main%5Csrc%5Capp_desenho%5Cmodelo%5Cmodelo_desenho.py">c:\users\vinic\downloads\projeto-ufs-construindo-app-de-desenho-main\projeto-ufs-construindo-app-de-desenho-main\src\app_desenho\modelo\modelo_desenho.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="json.html">json</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="app_desenho.modelo.modelo_desenho.html#Desenho">Desenho</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Desenho">class <strong>Desenho</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Modelo&nbsp;de&nbsp;desenho&nbsp;que&nbsp;agrupa&nbsp;figuras&nbsp;e&nbsp;manipula&nbsp;seu&nbsp;estado.<br>
+&nbsp;<br>
+Finalidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Manter&nbsp;a&nbsp;lista&nbsp;de&nbsp;figuras&nbsp;criadas,&nbsp;permitir&nbsp;desfazer,&nbsp;limpar&nbsp;e&nbsp;gerenciar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;carregamento/salvamento.<br>
+&nbsp;<br>
+Responsabilidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Ser&nbsp;o&nbsp;repositório&nbsp;de&nbsp;dados&nbsp;do&nbsp;desenho&nbsp;e&nbsp;converter&nbsp;figuras&nbsp;para/desde<br>
+&nbsp;&nbsp;&nbsp;&nbsp;representação&nbsp;JSON.<br>
+&nbsp;<br>
+Uso:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Instanciar&nbsp;com&nbsp;`<a href="#Desenho">Desenho</a>()`,&nbsp;utilizar&nbsp;`<a href="#Desenho-adicionar">adicionar</a>(figura)`,&nbsp;`<a href="#Desenho-desfazer">desfazer</a>()`,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`<a href="#Desenho-limpar">limpar</a>()`,&nbsp;`<a href="#Desenho-abrir">abrir</a>(diretorio)`&nbsp;e&nbsp;`<a href="#Desenho-salvar">salvar</a>(diretorio)`.<br>
+&nbsp;<br>
+@author&nbsp;Danillo<br>
+@version&nbsp;1.0<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Desenho-__init__"><strong>__init__</strong></a>(self)</dt><dd><span class="code">Inicializa&nbsp;o&nbsp;modelo&nbsp;de&nbsp;desenho&nbsp;com&nbsp;sua&nbsp;lista&nbsp;interna&nbsp;vazia.<br>
+&nbsp;<br>
+Objetivo:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Preparar&nbsp;o&nbsp;estado&nbsp;inicial&nbsp;do&nbsp;desenho&nbsp;para&nbsp;receber&nbsp;figuras.</span></dd></dl>
+
+<dl><dt><a name="Desenho-abrir"><strong>abrir</strong></a>(self, diretorio)</dt><dd><span class="code">Carrega&nbsp;um&nbsp;desenho&nbsp;a&nbsp;partir&nbsp;de&nbsp;um&nbsp;arquivo&nbsp;JSON.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Lê&nbsp;um&nbsp;arquivo&nbsp;JSON&nbsp;e&nbsp;reconstrói&nbsp;todas&nbsp;as&nbsp;figuras,&nbsp;limpando&nbsp;o&nbsp;estado&nbsp;atual.<br>
+&nbsp;<br>
+@param&nbsp;diretorio&nbsp;(str):&nbsp;Caminho&nbsp;do&nbsp;arquivo&nbsp;JSON&nbsp;a&nbsp;ser&nbsp;carregado.<br>
+@throws&nbsp;FileNotFoundError:&nbsp;Se&nbsp;o&nbsp;arquivo&nbsp;não&nbsp;existir.<br>
+@throws&nbsp;json.JSONDecodeError:&nbsp;Se&nbsp;o&nbsp;arquivo&nbsp;não&nbsp;for&nbsp;um&nbsp;JSON&nbsp;válido.</span></dd></dl>
+
+<dl><dt><a name="Desenho-adicionar"><strong>adicionar</strong></a>(self, figura)</dt><dd><span class="code">Adiciona&nbsp;uma&nbsp;figura&nbsp;ao&nbsp;desenho.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Anexa&nbsp;uma&nbsp;figura&nbsp;completada&nbsp;à&nbsp;lista&nbsp;de&nbsp;figuras&nbsp;do&nbsp;desenho.<br>
+&nbsp;<br>
+@param&nbsp;figura&nbsp;(Figura):&nbsp;Instância&nbsp;de&nbsp;uma&nbsp;figura&nbsp;completa&nbsp;para&nbsp;adicionar.</span></dd></dl>
+
+<dl><dt><a name="Desenho-criar"><strong>criar</strong></a>(self)</dt><dd><span class="code">Método&nbsp;para&nbsp;criar&nbsp;novo&nbsp;desenho.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Atualiza&nbsp;o&nbsp;estado&nbsp;do&nbsp;desenho&nbsp;para&nbsp;um&nbsp;novo&nbsp;estado&nbsp;vazio.</span></dd></dl>
+
+<dl><dt><a name="Desenho-desfazer"><strong>desfazer</strong></a>(self)</dt><dd><span class="code">Remove&nbsp;e&nbsp;retorna&nbsp;a&nbsp;última&nbsp;figura&nbsp;adicionada.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Executa&nbsp;uma&nbsp;operação&nbsp;de&nbsp;desfazer&nbsp;removendo&nbsp;a&nbsp;figura&nbsp;do&nbsp;topo&nbsp;da&nbsp;pilha.<br>
+&nbsp;<br>
+@return&nbsp;Figura&nbsp;ou&nbsp;None:&nbsp;A&nbsp;última&nbsp;figura&nbsp;adicionada,&nbsp;ou&nbsp;None&nbsp;se&nbsp;a&nbsp;lista&nbsp;está&nbsp;vazia.</span></dd></dl>
+
+<dl><dt><a name="Desenho-esta_vazio"><strong>esta_vazio</strong></a>(self)</dt><dd><span class="code">Verifica&nbsp;se&nbsp;o&nbsp;desenho&nbsp;não&nbsp;possui&nbsp;figuras.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Retorna&nbsp;verdadeiro&nbsp;se&nbsp;a&nbsp;lista&nbsp;de&nbsp;figuras&nbsp;está&nbsp;vazia.<br>
+&nbsp;<br>
+@return&nbsp;bool:&nbsp;True&nbsp;se&nbsp;não&nbsp;há&nbsp;figuras,&nbsp;False&nbsp;caso&nbsp;contrário.</span></dd></dl>
+
+<dl><dt><a name="Desenho-limpar"><strong>limpar</strong></a>(self)</dt><dd><span class="code">Remove&nbsp;todas&nbsp;as&nbsp;figuras&nbsp;do&nbsp;desenho.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Limpa&nbsp;completamente&nbsp;a&nbsp;lista&nbsp;de&nbsp;figuras.</span></dd></dl>
+
+<dl><dt><a name="Desenho-salvar"><strong>salvar</strong></a>(self, diretorio)</dt><dd><span class="code">Salva&nbsp;o&nbsp;desenho&nbsp;em&nbsp;um&nbsp;arquivo&nbsp;JSON.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Serializa&nbsp;todas&nbsp;as&nbsp;figuras&nbsp;e&nbsp;escreve&nbsp;em&nbsp;um&nbsp;arquivo&nbsp;JSON.<br>
+&nbsp;<br>
+@param&nbsp;diretorio&nbsp;(str):&nbsp;Caminho&nbsp;do&nbsp;arquivo&nbsp;JSON&nbsp;onde&nbsp;salvar.<br>
+@throws&nbsp;IOError:&nbsp;Se&nbsp;não&nbsp;for&nbsp;possível&nbsp;escrever&nbsp;no&nbsp;arquivo.</span></dd></dl>
+
+<dl><dt><a name="Desenho-to_dict"><strong>to_dict</strong></a>(self)</dt><dd><span class="code">Serializa&nbsp;o&nbsp;desenho&nbsp;em&nbsp;dicionário.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Converte&nbsp;todas&nbsp;as&nbsp;figuras&nbsp;em&nbsp;dicionários&nbsp;para&nbsp;salvamento&nbsp;em&nbsp;JSON.<br>
+&nbsp;<br>
+@return&nbsp;dict:&nbsp;Dicionário&nbsp;com&nbsp;lista&nbsp;de&nbsp;figuras&nbsp;serializadas.</span></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Desenho-from_dict"><strong>from_dict</strong></a>(dicionario: dict)</dt><dd><span class="code">Desserializa&nbsp;um&nbsp;desenho&nbsp;a&nbsp;partir&nbsp;de&nbsp;um&nbsp;dicionário.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Reconstrói&nbsp;uma&nbsp;instância&nbsp;de&nbsp;<a href="#Desenho">Desenho</a>&nbsp;com&nbsp;todas&nbsp;as&nbsp;figuras&nbsp;armazenadas.<br>
+&nbsp;<br>
+@param&nbsp;dicionario&nbsp;(dict):&nbsp;Dicionário&nbsp;contendo&nbsp;dados&nbsp;de&nbsp;figuras&nbsp;serializadas.<br>
+@return&nbsp;<a href="#Desenho">Desenho</a>:&nbsp;Nova&nbsp;instância&nbsp;de&nbsp;<a href="#Desenho">Desenho</a>&nbsp;com&nbsp;as&nbsp;figuras&nbsp;restauradas.</span></dd></dl>
+
+<hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>figuras</strong></dt>
+<dd><span class="code">Retorna&nbsp;uma&nbsp;cópia&nbsp;da&nbsp;lista&nbsp;de&nbsp;figuras.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fornece&nbsp;acesso&nbsp;à&nbsp;lista&nbsp;de&nbsp;figuras&nbsp;sem&nbsp;permitir&nbsp;modificações&nbsp;diretas.<br>
+&nbsp;<br>
+@return&nbsp;list:&nbsp;Cópia&nbsp;da&nbsp;lista&nbsp;de&nbsp;figuras&nbsp;atuais.</span></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

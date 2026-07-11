@@ -15,8 +15,8 @@ class Figura(ABC):
         Estender esta classe e implementar o método `desenhar(canvas,
         tracejado=False)`.
 
-    Autor: Vinicius
-    Versão: 1.0
+    @author Vinicius
+    @version 1.0
     """
 
     def __init__(self, x1, y1, x2, y2, cor_borda):
@@ -25,12 +25,11 @@ class Figura(ABC):
         Objetivo:
             Configurar as coordenadas de início e fim e a cor da borda.
 
-        Args:
-            x1 (int): Coordenada x do ponto inicial.
-            y1 (int): Coordenada y do ponto inicial.
-            x2 (int): Coordenada x do ponto final.
-            y2 (int): Coordenada y do ponto final.
-            cor_borda (str): Cor da borda para desenho.
+        @param x1 (int): Coordenada x do ponto inicial.
+        @param y1 (int): Coordenada y do ponto inicial.
+        @param x2 (int): Coordenada x do ponto final.
+        @param y2 (int): Coordenada y do ponto final.
+        @param cor_borda (str): Cor da borda para desenho.
         """
         self.x1, self.y1, self.x2, self.y2 = x1, y1, x2, y2
         self.cor_borda = cor_borda
@@ -41,9 +40,8 @@ class Figura(ABC):
         Descrição:
             Modifica o ponto final (x2, y2) para a nova posição fornecida.
 
-        Args:
-            x (int): Coordenada x da nova posição final.
-            y (int): Coordenada y da nova posição final.
+        @param x (int): Coordenada x da nova posição final.
+        @param y (int): Coordenada y da nova posição final.
         """
         self.x2, self.y2 = x, y
 
@@ -54,9 +52,8 @@ class Figura(ABC):
         Descrição:
             Desenha a figura usando o método apropriado do canvas Tkinter.
 
-        Args:
-            canvas (tk.Canvas): Canvas onde a figura será desenhada.
-            tracejado (bool): Se True, desenha com linha tracejada. Default(tracejado): False.
+        @param canvas (tk.Canvas): Canvas onde a figura será desenhada.
+        @param tracejado (bool): Se True, desenha com linha tracejada. Default(tracejado): False.
         """
         pass
 
@@ -67,8 +64,7 @@ class Figura(ABC):
             Uma figura está incompleta se o ponto inicial e final são iguais,
             indicando que ainda não foi pelo menos arrastada.
 
-        Returns:
-            bool: True se a figura está incompleta, False caso contrário.
+        @return bool: True se a figura está incompleta, False caso contrário.
         """
         return (self.x1, self.y1) == (self.x2, self.y2)
 
@@ -96,8 +92,9 @@ class FiguraPreenchida(Figura):
         Não é instanciada diretamente; serve como base para figuras como
         `Retangulo`, `Oval` e `Circulo`.
 
-    Autor: Vinicius
-    Versão: 1.0
+    @author Vinicius
+    @version 1.0
+    @see Figura
     """
 
     def __init__(self, x1, y1, x2, y2, cor_borda, cor_preenchimento):
@@ -106,13 +103,12 @@ class FiguraPreenchida(Figura):
         Objetivo:
             Configurar coordenadas, cor de borda e cor de preenchimento.
 
-        Args:
-            x1 (int): Coordenada x do ponto inicial.
-            y1 (int): Coordenada y do ponto inicial.
-            x2 (int): Coordenada x do ponto final.
-            y2 (int): Coordenada y do ponto final.
-            cor_borda (str): Cor da borda.
-            cor_preenchimento (str): Cor de preenchimento interno.
+        @param x1 (int): Coordenada x do ponto inicial.
+        @param y1 (int): Coordenada y do ponto inicial.
+        @param x2 (int): Coordenada x do ponto final.
+        @param y2 (int): Coordenada y do ponto final.
+        @param cor_borda (str): Cor da borda.
+        @param cor_preenchimento (str): Cor de preenchimento interno.
         """
         super().__init__(x1,y1,x2,y2,cor_borda)
         self.cor_preenchimento = cor_preenchimento
@@ -139,8 +135,9 @@ class Linha(Figura):
         Instanciar com `Linha(x1, y1, x2, y2, cor_borda)` e chamar
         `desenhar(canvas)` para renderizá-la.
 
-    Autor: Vinicius
-    Versão: 1.0
+    @author Vinicius
+    @version 1.0
+    @see Figura
     """
 
     def desenhar(self, canvas, tracejado=False):
@@ -149,9 +146,8 @@ class Linha(Figura):
         Descrição:
             Renderiza uma linha reta entre os pontos inicial e final.
 
-        Args:
-            canvas (tk.Canvas): Canvas onde desenhar.
-            tracejado (bool): Se True, desenha com linha tracejada. Default(tracejado): False.
+        @param canvas (tk.Canvas): Canvas onde desenhar.
+        @param tracejado (bool): Se True, desenha com linha tracejada. Default(tracejado): False.
         """
         canvas.create_line(self.x1, self.y1, self.x2, self.y2,
          **self._opcoes_desenho(tracejado)
@@ -163,8 +159,7 @@ class Linha(Figura):
         Descrição:
             Converte os atributos da linha em um dicionário para salvamento em JSON.
 
-        Returns:
-            dict: Dicionário com os dados da linha.
+        @return dict: Dicionário com os dados da linha.
         """
         return {
             'tipo': 'Linha',
@@ -182,11 +177,8 @@ class Linha(Figura):
         Descrição:
             Reconstrói uma instância de Linha a partir de dados serializados.
 
-        Args:
-            dicionario (dict): Dicionário contendo dados da linha.
-
-        Returns:
-            Linha: Nova instância de Linha.
+        @param dicionario (dict): Dicionário contendo dados da linha.
+        @return Linha: Nova instância de Linha.
         """
         return Linha(dicionario['x1'], dicionario['y1'], dicionario['x2'], dicionario['y2'], dicionario['cor_borda'])
 
@@ -203,8 +195,9 @@ class Rabisco(Figura):
         Instanciar com `Rabisco(x1, y1, cor_borda)`, chamar `atualizar(x, y)`
         para adicionar pontos e `desenhar(canvas)` para renderizar.
 
-    Autor: Vinicius
-    Versão: 1.0
+    @author Vinicius
+    @version 1.0
+    @see Figura
     """
 
     def __init__(self, x1, y1, cor_borda):
@@ -213,10 +206,9 @@ class Rabisco(Figura):
         Objetivo:
             Criar um traço em construção armazenando o primeiro ponto.
 
-        Args:
-            x1 (int): Coordenada x inicial do rabisco.
-            y1 (int): Coordenada y inicial do rabisco.
-            cor_borda (str): Cor da linha do rabisco.
+        @param x1 (int): Coordenada x inicial do rabisco.
+        @param y1 (int): Coordenada y inicial do rabisco.
+        @param cor_borda (str): Cor da linha do rabisco.
         """
         super().__init__(x1, y1, x1, y1, cor_borda)
         self.pontos = [(x1,y1)]
@@ -227,9 +219,8 @@ class Rabisco(Figura):
         Descrição:
             Anexa as coordenadas fornecidas à lista de pontos do traço livre.
 
-        Args:
-            x (int): Coordenada x do novo ponto.
-            y (int): Coordenada y do novo ponto.
+        @param x (int): Coordenada x do novo ponto.
+        @param y (int): Coordenada y do novo ponto.
         """
         self.pontos.append((x, y))    
 
@@ -239,8 +230,7 @@ class Rabisco(Figura):
         Descrição:
             Um rabisco está incompleto se possui menos de 2 pontos (sem poder desenhar).
 
-        Returns:
-            bool: True se o rabisco tem menos de 2 pontos, False caso contrário.
+        @return bool: True se o rabisco tem menos de 2 pontos, False caso contrário.
         """
         return len(self.pontos) < 2
 
@@ -250,9 +240,8 @@ class Rabisco(Figura):
         Descrição:
             Renderiza todos os pontos conectados no canvas se houver pelo menos 2 pontos.
 
-        Args:
-            canvas (tk.Canvas): Canvas onde desenhar.
-            tracejado (bool): Se True, desenha com linha tracejada. Default: False.
+        @param canvas (tk.Canvas): Canvas onde desenhar.
+        @param tracejado (bool): Se True, desenha com linha tracejada. Default: False.
         """
         if len(self.pontos) < 2:
             return
@@ -264,8 +253,7 @@ class Rabisco(Figura):
         Descrição:
             Converte os atributos do rabisco incluindo a lista de pontos para JSON.
 
-        Returns:
-            dict: Dicionário com os dados do rabisco.
+        @return dict: Dicionário com os dados do rabisco.
         """
         return {
             'tipo': 'Rabisco',
@@ -284,11 +272,8 @@ class Rabisco(Figura):
         Descrição:
             Reconstrói uma instância de Rabisco incluindo a lista de pontos.
 
-        Args:
-            dicionario (dict): Dicionário contendo dados do rabisco.
-
-        Returns:
-            Rabisco: Nova instância de Rabisco.
+        @param dicionario (dict): Dicionário contendo dados do rabisco.
+        @return Rabisco: Nova instância de Rabisco.
         """
         r = Rabisco(dicionario['x1'], dicionario['y1'], dicionario['cor_borda'])
         r.pontos = [tuple(p) for p in dicionario['pontos']]
@@ -309,8 +294,9 @@ class Retangulo(FiguraPreenchida):
         Instanciar com `Retangulo(x1, y1, x2, y2, cor_borda,
         cor_preenchimento)` e chamar `desenhar(canvas)` para renderizar.
 
-    Autor: Vinicius
-    Versão: 1.0
+    @author Vinicius
+    @version 1.0
+    @see FiguraPreenchida
     """
 
     def desenhar(self, canvas, tracejado=False):
@@ -319,9 +305,8 @@ class Retangulo(FiguraPreenchida):
         Descrição:
             Renderiza um retângulo com contorno e preenchimento.
 
-        Args:
-            canvas (tk.Canvas): Canvas onde desenhar.
-            tracejado (bool): Se True, desenha com linha tracejada. Default(tracejado): False.
+        @param canvas (tk.Canvas): Canvas onde desenhar.
+        @param tracejado (bool): Se True, desenha com linha tracejada. Default(tracejado): False.
         """
         canvas.create_rectangle(
             self.x1, self.y1, self.x2, self.y2,
@@ -334,8 +319,7 @@ class Retangulo(FiguraPreenchida):
         Descrição:
             Converte os atributos do retângulo em dados para salvamento em JSON.
 
-        Returns:
-            dict: Dicionário com os dados do retângulo.
+        @return dict: Dicionário com os dados do retângulo.
         """
         return {
             'tipo': 'Retangulo',
@@ -354,11 +338,8 @@ class Retangulo(FiguraPreenchida):
         Descrição:
             Reconstrói uma instância de Retangulo a partir de dados serializados.
 
-        Args:
-            dicionario (dict): Dicionário contendo dados do retângulo.
-
-        Returns:
-            Retangulo: Nova instância de Retangulo.
+        @param dicionario (dict): Dicionário contendo dados do retângulo.
+        @return Retangulo: Nova instância de Retangulo.
         """
         return Retangulo(dicionario['x1'], dicionario['y1'], dicionario['x2'], dicionario['y2'], dicionario['cor_borda'], dicionario['cor_preenchimento'])
 
@@ -375,8 +356,9 @@ class Oval(FiguraPreenchida):
         Instanciar com `Oval(x1, y1, x2, y2, cor_borda,
         cor_preenchimento)` e chamar `desenhar(canvas)`.
 
-    Autor: Vinicius
-    Versão: 1.0
+    @author Vinicius
+    @version 1.0
+    @see FiguraPreenchida
     """
 
     def desenhar(self, canvas, tracejado=False):
@@ -385,9 +367,8 @@ class Oval(FiguraPreenchida):
         Descrição:
             Renderiza uma forma oval com contorno e preenchimento.
 
-        Args:
-            canvas (tk.Canvas): Canvas onde desenhar.
-            tracejado (bool): Se True, desenha com linha tracejada. Default(tracejado): False.
+        @param canvas (tk.Canvas): Canvas onde desenhar.
+        @param tracejado (bool): Se True, desenha com linha tracejada. Default(tracejado): False.
         """
         canvas.create_oval(
             self.x1, self.y1, self.x2, self.y2,
@@ -400,8 +381,7 @@ class Oval(FiguraPreenchida):
         Descrição:
             Converte os atributos da oval em dados para salvamento em JSON.
 
-        Returns:
-            dict: Dicionário com os dados da oval.
+        @return dict: Dicionário com os dados da oval.
         """
         return {
             'tipo': 'Oval',
@@ -420,11 +400,8 @@ class Oval(FiguraPreenchida):
         Descrição:
             Reconstrói uma instância de Oval a partir de dados serializados.
 
-        Args:
-            dicionario (dict): Dicionário contendo dados da oval.
-
-        Returns:
-            Oval: Nova instância de Oval.
+        @param dicionario (dict): Dicionário contendo dados da oval.
+        @return Oval: Nova instância de Oval.
         """
         return Oval(dicionario['x1'], dicionario['y1'], dicionario['x2'], dicionario['y2'], dicionario['cor_borda'], dicionario['cor_preenchimento'])
 
@@ -441,8 +418,9 @@ class Circulo(FiguraPreenchida):
         Instanciar com `Circulo(x1, y1, x2, y2, cor_borda,
         cor_preenchimento)` e chamar `desenhar(canvas)`.
 
-    Autor: Vinicius
-    Versão: 1.0
+    @author Vinicius
+    @version 1.0
+    @see FiguraPreenchida
     """
 
     def desenhar(self, canvas, tracejado=False):
@@ -451,9 +429,8 @@ class Circulo(FiguraPreenchida):
         Descrição:
             Renderiza um círculo perfeito calculando o raio a partir da área fornecida.
 
-        Args:
-            canvas (tk.Canvas): Canvas onde desenhar.
-            tracejado (bool): Se True, desenha com linha tracejada. Default(tracejado): False.
+        @param canvas (tk.Canvas): Canvas onde desenhar.
+        @param tracejado (bool): Se True, desenha com linha tracejada. Default(tracejado): False.
         """
         x1, x2 = min(self.x1, self.x2), max(self.x1, self.x2)
         y1, y2 = min(self.y1, self.y2), max(self.y1, self.y2)
@@ -476,8 +453,7 @@ class Circulo(FiguraPreenchida):
         Descrição:
             Converte os atributos do círculo em dados para salvamento em JSON.
 
-        Returns:
-            dict: Dicionário com os dados do círculo.
+        @return dict: Dicionário com os dados do círculo.
         """
         return {
             'tipo': 'Circulo',
@@ -496,11 +472,8 @@ class Circulo(FiguraPreenchida):
         Descrição:
             Reconstrói uma instância de Circulo a partir de dados serializados.
 
-        Args:
-            dicionario (dict): Dicionário contendo dados do círculo.
-
-        Returns:
-            Circulo: Nova instância de Circulo.
+        @param dicionario (dict): Dicionário contendo dados do círculo.
+        @return Circulo: Nova instância de Circulo.
         """
         return Circulo(dicionario['x1'], dicionario['y1'], dicionario['x2'], dicionario['y2'], dicionario['cor_borda'], dicionario['cor_preenchimento'])
 
@@ -519,8 +492,9 @@ class Poligono(FiguraPreenchida):
         `adicionar_vertice(x, y)` para cada novo ponto, e `finalizar()` antes de
         adicionar ao desenho.
 
-    Autor: Vinicius
-    Versão: 1.0
+    @author Vinicius
+    @version 1.0
+    @see FiguraPreenchida
     """
 
     def __init__(self, x, y, cor_borda, cor_preenchimento):
@@ -529,11 +503,10 @@ class Poligono(FiguraPreenchida):
         Objetivo:
             Criar a estrutura de pontos e configurar cores para o polígono.
 
-        Args:
-            x (int): Coordenada x do primeiro vértice.
-            y (int): Coordenada y do primeiro vértice.
-            cor_borda (str): Cor da borda do polígono.
-            cor_preenchimento (str): Cor de preenchimento do polígono.
+        @param x (int): Coordenada x do primeiro vértice.
+        @param y (int): Coordenada y do primeiro vértice.
+        @param cor_borda (str): Cor da borda do polígono.
+        @param cor_preenchimento (str): Cor de preenchimento do polígono.
         """
         self.pontos = [(x, y)]
         self.x1, self.y1 = x, y
@@ -548,9 +521,8 @@ class Poligono(FiguraPreenchida):
         Descrição:
             Anexa as coordenadas como um novo ponto e atualiza a posição final.
 
-        Args:
-            x (int): Coordenada x do novo vértice.
-            y (int): Coordenada y do novo vértice.
+        @param x (int): Coordenada x do novo vértice.
+        @param y (int): Coordenada y do novo vértice.
         """
         self.pontos.append((x, y))
         self.x2, self.y2 = x, y
@@ -561,9 +533,8 @@ class Poligono(FiguraPreenchida):
         Descrição:
             Modifica o último ponto sem adicioná-lo permanentemente (linha de pré-visualização).
 
-        Args:
-            x (int): Coordenada x da posição temporária.
-            y (int): Coordenada y da posição temporária.
+        @param x (int): Coordenada x da posição temporária.
+        @param y (int): Coordenada y da posição temporária.
         """
         self.x2, self.y2 = x, y
 
@@ -581,8 +552,7 @@ class Poligono(FiguraPreenchida):
         Descrição:
             Um polígono está incompleto se não foi finalizado ou tem menos de 3 pontos.
 
-        Returns:
-            bool: True se incompleto, False se é um polígono válido finalizado.
+        @return bool: True se incompleto, False se é um polígono válido finalizado.
         """
 
         return not self.finalizado or len(self.pontos) < 3
@@ -602,9 +572,8 @@ class Poligono(FiguraPreenchida):
         Descrição:
             Se finalizado, renderiza como polígono preenchido; caso contrário, como linha tracejada.
 
-        Args:
-            canvas (tk.Canvas): Canvas onde desenhar.
-            tracejado (bool): Se True, desenha com linha tracejada. Default: False.
+        @param canvas (tk.Canvas): Canvas onde desenhar.
+        @param tracejado (bool): Se True, desenha com linha tracejada. Default: False.
         """
         coords = self._pontos_para_desenho()
         if len(coords) < 4:
@@ -627,8 +596,7 @@ class Poligono(FiguraPreenchida):
         Descrição:
             Converte todos os atributos do polígono incluindo a lista de vértices.
 
-        Returns:
-            dict: Dicionário com os dados do polígono.
+        @return dict: Dicionário com os dados do polígono.
         """
         return {
             'tipo': 'Poligono',
@@ -649,11 +617,8 @@ class Poligono(FiguraPreenchida):
         Descrição:
             Reconstrói uma instância de Poligono incluindo todos os vértices e estado.
 
-        Args:
-            dicionario (dict): Dicionário contendo dados do polígono.
-
-        Returns:
-            Poligono: Nova instância de Poligono.
+        @param dicionario (dict): Dicionário contendo dados do polígono.
+        @return Poligono: Nova instância de Poligono.
         """
         p = Poligono(dicionario['x1'], dicionario['y1'], dicionario['cor_borda'], dicionario['cor_preenchimento'])
         p.pontos = [tuple(pt) for pt in dicionario['pontos']]
@@ -682,8 +647,8 @@ def figura_from_dict(dicionario: dict):
     Uso:
         Chamar `figura_from_dict(dados_da_figura)` ao ler dados de um arquivo.
 
-    Autor: Vinicius
-    Versão: 1.0
+    @author Vinicius
+    @version 1.0
     """
     mapa = {
         'Linha': Linha,

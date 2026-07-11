@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module app_desenho.modelo.figuras</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="app_desenho.html" class="white">app_desenho</a>.<a href="app_desenho.modelo.html" class="white">modelo</a>.figuras</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cvinic%5Cdownloads%5Cprojeto-ufs-construindo-app-de-desenho-main%5Cprojeto-ufs-construindo-app-de-desenho-main%5Csrc%5Capp_desenho%5Cmodelo%5Cfiguras.py">c:\users\vinic\downloads\projeto-ufs-construindo-app-de-desenho-main\projeto-ufs-construindo-app-de-desenho-main\src\app_desenho\modelo\figuras.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="abc.html#ABC">abc.ABC</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="app_desenho.modelo.figuras.html#Figura">Figura</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="app_desenho.modelo.figuras.html#FiguraPreenchida">FiguraPreenchida</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="app_desenho.modelo.figuras.html#Circulo">Circulo</a>
+</dt><dt class="heading-text"><a href="app_desenho.modelo.figuras.html#Oval">Oval</a>
+</dt><dt class="heading-text"><a href="app_desenho.modelo.figuras.html#Poligono">Poligono</a>
+</dt><dt class="heading-text"><a href="app_desenho.modelo.figuras.html#Retangulo">Retangulo</a>
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="app_desenho.modelo.figuras.html#Linha">Linha</a>
+</dt><dt class="heading-text"><a href="app_desenho.modelo.figuras.html#Rabisco">Rabisco</a>
+</dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Circulo">class <strong>Circulo</strong></a>(<a href="app_desenho.modelo.figuras.html#FiguraPreenchida">FiguraPreenchida</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Circulo">Circulo</a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;cor_borda,&nbsp;cor_preenchimento)<br>
+&nbsp;<br>
+Representa&nbsp;um&nbsp;círculo&nbsp;preenchido&nbsp;no&nbsp;desenho.<br>
+&nbsp;<br>
+Finalidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Desenhar&nbsp;um&nbsp;círculo&nbsp;baseado&nbsp;em&nbsp;uma&nbsp;área&nbsp;delimitada&nbsp;por&nbsp;dois&nbsp;pontos.<br>
+&nbsp;<br>
+Responsabilidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Calcular&nbsp;o&nbsp;centro&nbsp;e&nbsp;o&nbsp;raio&nbsp;para&nbsp;renderizar&nbsp;um&nbsp;círculo&nbsp;perfeito.<br>
+&nbsp;<br>
+Uso:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Instanciar&nbsp;com&nbsp;`<a href="#Circulo">Circulo</a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;cor_borda,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cor_preenchimento)`&nbsp;e&nbsp;chamar&nbsp;`<a href="#Circulo-desenhar">desenhar</a>(canvas)`.<br>
+&nbsp;<br>
+@author&nbsp;Vinicius<br>
+@version&nbsp;1.0<br>
+@see&nbsp;<a href="#FiguraPreenchida">FiguraPreenchida</a><br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="app_desenho.modelo.figuras.html#Circulo">Circulo</a></dd>
+<dd><a href="app_desenho.modelo.figuras.html#FiguraPreenchida">FiguraPreenchida</a></dd>
+<dd><a href="app_desenho.modelo.figuras.html#Figura">Figura</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Circulo-desenhar"><strong>desenhar</strong></a>(self, canvas, tracejado=False)</dt><dd><span class="code">Desenha&nbsp;um&nbsp;círculo&nbsp;no&nbsp;canvas.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Renderiza&nbsp;um&nbsp;círculo&nbsp;perfeito&nbsp;calculando&nbsp;o&nbsp;raio&nbsp;a&nbsp;partir&nbsp;da&nbsp;área&nbsp;fornecida.<br>
+&nbsp;<br>
+@param&nbsp;canvas&nbsp;(tk.Canvas):&nbsp;Canvas&nbsp;onde&nbsp;desenhar.<br>
+@param&nbsp;tracejado&nbsp;(bool):&nbsp;Se&nbsp;True,&nbsp;desenha&nbsp;com&nbsp;linha&nbsp;tracejada.&nbsp;Default(tracejado):&nbsp;False.</span></dd></dl>
+
+<dl><dt><a name="Circulo-to_dict"><strong>to_dict</strong></a>(self)</dt><dd><span class="code">Serializa&nbsp;o&nbsp;círculo&nbsp;em&nbsp;dicionário.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Converte&nbsp;os&nbsp;atributos&nbsp;do&nbsp;círculo&nbsp;em&nbsp;dados&nbsp;para&nbsp;salvamento&nbsp;em&nbsp;JSON.<br>
+&nbsp;<br>
+@return&nbsp;dict:&nbsp;Dicionário&nbsp;com&nbsp;os&nbsp;dados&nbsp;do&nbsp;círculo.</span></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Circulo-from_dict"><strong>from_dict</strong></a>(dicionario: dict)</dt><dd><span class="code">Desserializa&nbsp;um&nbsp;círculo&nbsp;a&nbsp;partir&nbsp;de&nbsp;um&nbsp;dicionário.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Reconstrói&nbsp;uma&nbsp;instância&nbsp;de&nbsp;<a href="#Circulo">Circulo</a>&nbsp;a&nbsp;partir&nbsp;de&nbsp;dados&nbsp;serializados.<br>
+&nbsp;<br>
+@param&nbsp;dicionario&nbsp;(dict):&nbsp;Dicionário&nbsp;contendo&nbsp;dados&nbsp;do&nbsp;círculo.<br>
+@return&nbsp;<a href="#Circulo">Circulo</a>:&nbsp;Nova&nbsp;instância&nbsp;de&nbsp;<a href="#Circulo">Circulo</a>.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Methods inherited from <a href="app_desenho.modelo.figuras.html#FiguraPreenchida">FiguraPreenchida</a>:<br>
+<dl><dt><a name="Circulo-__init__"><strong>__init__</strong></a>(self, x1, y1, x2, y2, cor_borda, cor_preenchimento)</dt><dd><span class="code">Inicializa&nbsp;uma&nbsp;figura&nbsp;com&nbsp;cor&nbsp;de&nbsp;preenchimento.<br>
+&nbsp;<br>
+Objetivo:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Configurar&nbsp;coordenadas,&nbsp;cor&nbsp;de&nbsp;borda&nbsp;e&nbsp;cor&nbsp;de&nbsp;preenchimento.<br>
+&nbsp;<br>
+@param&nbsp;x1&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;do&nbsp;ponto&nbsp;inicial.<br>
+@param&nbsp;y1&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;do&nbsp;ponto&nbsp;inicial.<br>
+@param&nbsp;x2&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;do&nbsp;ponto&nbsp;final.<br>
+@param&nbsp;y2&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;do&nbsp;ponto&nbsp;final.<br>
+@param&nbsp;cor_borda&nbsp;(str):&nbsp;Cor&nbsp;da&nbsp;borda.<br>
+@param&nbsp;cor_preenchimento&nbsp;(str):&nbsp;Cor&nbsp;de&nbsp;preenchimento&nbsp;interno.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="app_desenho.modelo.figuras.html#Figura">Figura</a>:<br>
+<dl><dt><a name="Circulo-atualizar"><strong>atualizar</strong></a>(self, x, y)</dt><dd><span class="code">Atualiza&nbsp;a&nbsp;coordenada&nbsp;final&nbsp;da&nbsp;figura.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Modifica&nbsp;o&nbsp;ponto&nbsp;final&nbsp;(x2,&nbsp;y2)&nbsp;para&nbsp;a&nbsp;nova&nbsp;posição&nbsp;fornecida.<br>
+&nbsp;<br>
+@param&nbsp;x&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;da&nbsp;nova&nbsp;posição&nbsp;final.<br>
+@param&nbsp;y&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;da&nbsp;nova&nbsp;posição&nbsp;final.</span></dd></dl>
+
+<dl><dt><a name="Circulo-esta_incompleta"><strong>esta_incompleta</strong></a>(self)</dt><dd><span class="code">Verifica&nbsp;se&nbsp;a&nbsp;figura&nbsp;ainda&nbsp;está&nbsp;em&nbsp;construção.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Uma&nbsp;figura&nbsp;está&nbsp;incompleta&nbsp;se&nbsp;o&nbsp;ponto&nbsp;inicial&nbsp;e&nbsp;final&nbsp;são&nbsp;iguais,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;indicando&nbsp;que&nbsp;ainda&nbsp;não&nbsp;foi&nbsp;pelo&nbsp;menos&nbsp;arrastada.<br>
+&nbsp;<br>
+@return&nbsp;bool:&nbsp;True&nbsp;se&nbsp;a&nbsp;figura&nbsp;está&nbsp;incompleta,&nbsp;False&nbsp;caso&nbsp;contrário.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="app_desenho.modelo.figuras.html#Figura">Figura</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Figura">class <strong>Figura</strong></a>(<a href="abc.html#ABC">abc.ABC</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Figura">Figura</a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;cor_borda)<br>
+&nbsp;<br>
+Base&nbsp;abstrata&nbsp;para&nbsp;figuras&nbsp;geométricas&nbsp;do&nbsp;desenho.<br>
+&nbsp;<br>
+Finalidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fornecer&nbsp;atributos&nbsp;comuns&nbsp;de&nbsp;coordenadas&nbsp;e&nbsp;cor&nbsp;de&nbsp;borda,&nbsp;além&nbsp;de&nbsp;uma<br>
+&nbsp;&nbsp;&nbsp;&nbsp;interface&nbsp;unificada&nbsp;para&nbsp;atualização&nbsp;e&nbsp;desenho.<br>
+&nbsp;<br>
+Responsabilidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Manter&nbsp;a&nbsp;posição&nbsp;inicial&nbsp;e&nbsp;final&nbsp;de&nbsp;uma&nbsp;figura&nbsp;e&nbsp;definir&nbsp;métodos&nbsp;que&nbsp;as<br>
+&nbsp;&nbsp;&nbsp;&nbsp;subclasses&nbsp;devem&nbsp;implementar.<br>
+&nbsp;<br>
+Uso:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Estender&nbsp;esta&nbsp;classe&nbsp;e&nbsp;implementar&nbsp;o&nbsp;método&nbsp;`<a href="#Figura-desenhar">desenhar</a>(canvas,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tracejado=False)`.<br>
+&nbsp;<br>
+@author&nbsp;Vinicius<br>
+@version&nbsp;1.0<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="app_desenho.modelo.figuras.html#Figura">Figura</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Figura-__init__"><strong>__init__</strong></a>(self, x1, y1, x2, y2, cor_borda)</dt><dd><span class="code">Inicializa&nbsp;os&nbsp;atributos&nbsp;básicos&nbsp;de&nbsp;uma&nbsp;figura.<br>
+&nbsp;<br>
+Objetivo:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Configurar&nbsp;as&nbsp;coordenadas&nbsp;de&nbsp;início&nbsp;e&nbsp;fim&nbsp;e&nbsp;a&nbsp;cor&nbsp;da&nbsp;borda.<br>
+&nbsp;<br>
+@param&nbsp;x1&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;do&nbsp;ponto&nbsp;inicial.<br>
+@param&nbsp;y1&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;do&nbsp;ponto&nbsp;inicial.<br>
+@param&nbsp;x2&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;do&nbsp;ponto&nbsp;final.<br>
+@param&nbsp;y2&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;do&nbsp;ponto&nbsp;final.<br>
+@param&nbsp;cor_borda&nbsp;(str):&nbsp;Cor&nbsp;da&nbsp;borda&nbsp;para&nbsp;desenho.</span></dd></dl>
+
+<dl><dt><a name="Figura-atualizar"><strong>atualizar</strong></a>(self, x, y)</dt><dd><span class="code">Atualiza&nbsp;a&nbsp;coordenada&nbsp;final&nbsp;da&nbsp;figura.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Modifica&nbsp;o&nbsp;ponto&nbsp;final&nbsp;(x2,&nbsp;y2)&nbsp;para&nbsp;a&nbsp;nova&nbsp;posição&nbsp;fornecida.<br>
+&nbsp;<br>
+@param&nbsp;x&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;da&nbsp;nova&nbsp;posição&nbsp;final.<br>
+@param&nbsp;y&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;da&nbsp;nova&nbsp;posição&nbsp;final.</span></dd></dl>
+
+<dl><dt><a name="Figura-desenhar"><strong>desenhar</strong></a>(self, canvas, tracejado=False)</dt><dd><span class="code">Renderiza&nbsp;a&nbsp;figura&nbsp;no&nbsp;canvas.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Desenha&nbsp;a&nbsp;figura&nbsp;usando&nbsp;o&nbsp;método&nbsp;apropriado&nbsp;do&nbsp;canvas&nbsp;Tkinter.<br>
+&nbsp;<br>
+@param&nbsp;canvas&nbsp;(tk.Canvas):&nbsp;Canvas&nbsp;onde&nbsp;a&nbsp;figura&nbsp;será&nbsp;desenhada.<br>
+@param&nbsp;tracejado&nbsp;(bool):&nbsp;Se&nbsp;True,&nbsp;desenha&nbsp;com&nbsp;linha&nbsp;tracejada.&nbsp;Default(tracejado):&nbsp;False.</span></dd></dl>
+
+<dl><dt><a name="Figura-esta_incompleta"><strong>esta_incompleta</strong></a>(self)</dt><dd><span class="code">Verifica&nbsp;se&nbsp;a&nbsp;figura&nbsp;ainda&nbsp;está&nbsp;em&nbsp;construção.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Uma&nbsp;figura&nbsp;está&nbsp;incompleta&nbsp;se&nbsp;o&nbsp;ponto&nbsp;inicial&nbsp;e&nbsp;final&nbsp;são&nbsp;iguais,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;indicando&nbsp;que&nbsp;ainda&nbsp;não&nbsp;foi&nbsp;pelo&nbsp;menos&nbsp;arrastada.<br>
+&nbsp;<br>
+@return&nbsp;bool:&nbsp;True&nbsp;se&nbsp;a&nbsp;figura&nbsp;está&nbsp;incompleta,&nbsp;False&nbsp;caso&nbsp;contrário.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset({'desenhar'})</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="FiguraPreenchida">class <strong>FiguraPreenchida</strong></a>(<a href="app_desenho.modelo.figuras.html#Figura">Figura</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#FiguraPreenchida">FiguraPreenchida</a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;cor_borda,&nbsp;cor_preenchimento)<br>
+&nbsp;<br>
+<a href="#Figura">Figura</a>&nbsp;com&nbsp;preenchimento&nbsp;interna&nbsp;usada&nbsp;no&nbsp;desenho.<br>
+&nbsp;<br>
+Finalidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Adicionar&nbsp;suporte&nbsp;a&nbsp;cor&nbsp;de&nbsp;preenchimento&nbsp;em&nbsp;figuras&nbsp;derivadas.<br>
+&nbsp;<br>
+Responsabilidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Estender&nbsp;`<a href="#Figura">Figura</a>`&nbsp;com&nbsp;a&nbsp;cor&nbsp;de&nbsp;preenchimento&nbsp;e&nbsp;ajustar&nbsp;as&nbsp;opções&nbsp;de<br>
+&nbsp;&nbsp;&nbsp;&nbsp;desenho&nbsp;para&nbsp;exibir&nbsp;tanto&nbsp;contorno&nbsp;quanto&nbsp;preenchimento.<br>
+&nbsp;<br>
+Uso:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Não&nbsp;é&nbsp;instanciada&nbsp;diretamente;&nbsp;serve&nbsp;como&nbsp;base&nbsp;para&nbsp;figuras&nbsp;como<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`<a href="#Retangulo">Retangulo</a>`,&nbsp;`<a href="#Oval">Oval</a>`&nbsp;e&nbsp;`<a href="#Circulo">Circulo</a>`.<br>
+&nbsp;<br>
+@author&nbsp;Vinicius<br>
+@version&nbsp;1.0<br>
+@see&nbsp;<a href="#Figura">Figura</a><br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="app_desenho.modelo.figuras.html#FiguraPreenchida">FiguraPreenchida</a></dd>
+<dd><a href="app_desenho.modelo.figuras.html#Figura">Figura</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="FiguraPreenchida-__init__"><strong>__init__</strong></a>(self, x1, y1, x2, y2, cor_borda, cor_preenchimento)</dt><dd><span class="code">Inicializa&nbsp;uma&nbsp;figura&nbsp;com&nbsp;cor&nbsp;de&nbsp;preenchimento.<br>
+&nbsp;<br>
+Objetivo:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Configurar&nbsp;coordenadas,&nbsp;cor&nbsp;de&nbsp;borda&nbsp;e&nbsp;cor&nbsp;de&nbsp;preenchimento.<br>
+&nbsp;<br>
+@param&nbsp;x1&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;do&nbsp;ponto&nbsp;inicial.<br>
+@param&nbsp;y1&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;do&nbsp;ponto&nbsp;inicial.<br>
+@param&nbsp;x2&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;do&nbsp;ponto&nbsp;final.<br>
+@param&nbsp;y2&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;do&nbsp;ponto&nbsp;final.<br>
+@param&nbsp;cor_borda&nbsp;(str):&nbsp;Cor&nbsp;da&nbsp;borda.<br>
+@param&nbsp;cor_preenchimento&nbsp;(str):&nbsp;Cor&nbsp;de&nbsp;preenchimento&nbsp;interno.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset({'desenhar'})</dl>
+
+<hr>
+Methods inherited from <a href="app_desenho.modelo.figuras.html#Figura">Figura</a>:<br>
+<dl><dt><a name="FiguraPreenchida-atualizar"><strong>atualizar</strong></a>(self, x, y)</dt><dd><span class="code">Atualiza&nbsp;a&nbsp;coordenada&nbsp;final&nbsp;da&nbsp;figura.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Modifica&nbsp;o&nbsp;ponto&nbsp;final&nbsp;(x2,&nbsp;y2)&nbsp;para&nbsp;a&nbsp;nova&nbsp;posição&nbsp;fornecida.<br>
+&nbsp;<br>
+@param&nbsp;x&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;da&nbsp;nova&nbsp;posição&nbsp;final.<br>
+@param&nbsp;y&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;da&nbsp;nova&nbsp;posição&nbsp;final.</span></dd></dl>
+
+<dl><dt><a name="FiguraPreenchida-desenhar"><strong>desenhar</strong></a>(self, canvas, tracejado=False)</dt><dd><span class="code">Renderiza&nbsp;a&nbsp;figura&nbsp;no&nbsp;canvas.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Desenha&nbsp;a&nbsp;figura&nbsp;usando&nbsp;o&nbsp;método&nbsp;apropriado&nbsp;do&nbsp;canvas&nbsp;Tkinter.<br>
+&nbsp;<br>
+@param&nbsp;canvas&nbsp;(tk.Canvas):&nbsp;Canvas&nbsp;onde&nbsp;a&nbsp;figura&nbsp;será&nbsp;desenhada.<br>
+@param&nbsp;tracejado&nbsp;(bool):&nbsp;Se&nbsp;True,&nbsp;desenha&nbsp;com&nbsp;linha&nbsp;tracejada.&nbsp;Default(tracejado):&nbsp;False.</span></dd></dl>
+
+<dl><dt><a name="FiguraPreenchida-esta_incompleta"><strong>esta_incompleta</strong></a>(self)</dt><dd><span class="code">Verifica&nbsp;se&nbsp;a&nbsp;figura&nbsp;ainda&nbsp;está&nbsp;em&nbsp;construção.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Uma&nbsp;figura&nbsp;está&nbsp;incompleta&nbsp;se&nbsp;o&nbsp;ponto&nbsp;inicial&nbsp;e&nbsp;final&nbsp;são&nbsp;iguais,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;indicando&nbsp;que&nbsp;ainda&nbsp;não&nbsp;foi&nbsp;pelo&nbsp;menos&nbsp;arrastada.<br>
+&nbsp;<br>
+@return&nbsp;bool:&nbsp;True&nbsp;se&nbsp;a&nbsp;figura&nbsp;está&nbsp;incompleta,&nbsp;False&nbsp;caso&nbsp;contrário.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="app_desenho.modelo.figuras.html#Figura">Figura</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Linha">class <strong>Linha</strong></a>(<a href="app_desenho.modelo.figuras.html#Figura">Figura</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Linha">Linha</a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;cor_borda)<br>
+&nbsp;<br>
+Representa&nbsp;uma&nbsp;linha&nbsp;reta&nbsp;desenhável.<br>
+&nbsp;<br>
+Finalidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Modelar&nbsp;uma&nbsp;linha&nbsp;com&nbsp;duas&nbsp;extremidades&nbsp;e&nbsp;renderizá-la&nbsp;em&nbsp;um&nbsp;canvas.<br>
+&nbsp;<br>
+Responsabilidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Atualizar&nbsp;as&nbsp;coordenadas&nbsp;finais&nbsp;e&nbsp;desenhar&nbsp;a&nbsp;linha&nbsp;usando&nbsp;a&nbsp;cor&nbsp;de<br>
+&nbsp;&nbsp;&nbsp;&nbsp;borda&nbsp;configurada.<br>
+&nbsp;<br>
+Uso:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Instanciar&nbsp;com&nbsp;`<a href="#Linha">Linha</a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;cor_borda)`&nbsp;e&nbsp;chamar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`<a href="#Linha-desenhar">desenhar</a>(canvas)`&nbsp;para&nbsp;renderizá-la.<br>
+&nbsp;<br>
+@author&nbsp;Vinicius<br>
+@version&nbsp;1.0<br>
+@see&nbsp;<a href="#Figura">Figura</a><br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="app_desenho.modelo.figuras.html#Linha">Linha</a></dd>
+<dd><a href="app_desenho.modelo.figuras.html#Figura">Figura</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Linha-desenhar"><strong>desenhar</strong></a>(self, canvas, tracejado=False)</dt><dd><span class="code">Desenha&nbsp;uma&nbsp;linha&nbsp;no&nbsp;canvas.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Renderiza&nbsp;uma&nbsp;linha&nbsp;reta&nbsp;entre&nbsp;os&nbsp;pontos&nbsp;inicial&nbsp;e&nbsp;final.<br>
+&nbsp;<br>
+@param&nbsp;canvas&nbsp;(tk.Canvas):&nbsp;Canvas&nbsp;onde&nbsp;desenhar.<br>
+@param&nbsp;tracejado&nbsp;(bool):&nbsp;Se&nbsp;True,&nbsp;desenha&nbsp;com&nbsp;linha&nbsp;tracejada.&nbsp;Default(tracejado):&nbsp;False.</span></dd></dl>
+
+<dl><dt><a name="Linha-to_dict"><strong>to_dict</strong></a>(self)</dt><dd><span class="code">Serializa&nbsp;a&nbsp;linha&nbsp;em&nbsp;dicionário.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Converte&nbsp;os&nbsp;atributos&nbsp;da&nbsp;linha&nbsp;em&nbsp;um&nbsp;dicionário&nbsp;para&nbsp;salvamento&nbsp;em&nbsp;JSON.<br>
+&nbsp;<br>
+@return&nbsp;dict:&nbsp;Dicionário&nbsp;com&nbsp;os&nbsp;dados&nbsp;da&nbsp;linha.</span></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Linha-from_dict"><strong>from_dict</strong></a>(dicionario: dict)</dt><dd><span class="code">Desserializa&nbsp;uma&nbsp;linha&nbsp;a&nbsp;partir&nbsp;de&nbsp;um&nbsp;dicionário.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Reconstrói&nbsp;uma&nbsp;instância&nbsp;de&nbsp;<a href="#Linha">Linha</a>&nbsp;a&nbsp;partir&nbsp;de&nbsp;dados&nbsp;serializados.<br>
+&nbsp;<br>
+@param&nbsp;dicionario&nbsp;(dict):&nbsp;Dicionário&nbsp;contendo&nbsp;dados&nbsp;da&nbsp;linha.<br>
+@return&nbsp;<a href="#Linha">Linha</a>:&nbsp;Nova&nbsp;instância&nbsp;de&nbsp;<a href="#Linha">Linha</a>.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Methods inherited from <a href="app_desenho.modelo.figuras.html#Figura">Figura</a>:<br>
+<dl><dt><a name="Linha-__init__"><strong>__init__</strong></a>(self, x1, y1, x2, y2, cor_borda)</dt><dd><span class="code">Inicializa&nbsp;os&nbsp;atributos&nbsp;básicos&nbsp;de&nbsp;uma&nbsp;figura.<br>
+&nbsp;<br>
+Objetivo:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Configurar&nbsp;as&nbsp;coordenadas&nbsp;de&nbsp;início&nbsp;e&nbsp;fim&nbsp;e&nbsp;a&nbsp;cor&nbsp;da&nbsp;borda.<br>
+&nbsp;<br>
+@param&nbsp;x1&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;do&nbsp;ponto&nbsp;inicial.<br>
+@param&nbsp;y1&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;do&nbsp;ponto&nbsp;inicial.<br>
+@param&nbsp;x2&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;do&nbsp;ponto&nbsp;final.<br>
+@param&nbsp;y2&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;do&nbsp;ponto&nbsp;final.<br>
+@param&nbsp;cor_borda&nbsp;(str):&nbsp;Cor&nbsp;da&nbsp;borda&nbsp;para&nbsp;desenho.</span></dd></dl>
+
+<dl><dt><a name="Linha-atualizar"><strong>atualizar</strong></a>(self, x, y)</dt><dd><span class="code">Atualiza&nbsp;a&nbsp;coordenada&nbsp;final&nbsp;da&nbsp;figura.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Modifica&nbsp;o&nbsp;ponto&nbsp;final&nbsp;(x2,&nbsp;y2)&nbsp;para&nbsp;a&nbsp;nova&nbsp;posição&nbsp;fornecida.<br>
+&nbsp;<br>
+@param&nbsp;x&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;da&nbsp;nova&nbsp;posição&nbsp;final.<br>
+@param&nbsp;y&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;da&nbsp;nova&nbsp;posição&nbsp;final.</span></dd></dl>
+
+<dl><dt><a name="Linha-esta_incompleta"><strong>esta_incompleta</strong></a>(self)</dt><dd><span class="code">Verifica&nbsp;se&nbsp;a&nbsp;figura&nbsp;ainda&nbsp;está&nbsp;em&nbsp;construção.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Uma&nbsp;figura&nbsp;está&nbsp;incompleta&nbsp;se&nbsp;o&nbsp;ponto&nbsp;inicial&nbsp;e&nbsp;final&nbsp;são&nbsp;iguais,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;indicando&nbsp;que&nbsp;ainda&nbsp;não&nbsp;foi&nbsp;pelo&nbsp;menos&nbsp;arrastada.<br>
+&nbsp;<br>
+@return&nbsp;bool:&nbsp;True&nbsp;se&nbsp;a&nbsp;figura&nbsp;está&nbsp;incompleta,&nbsp;False&nbsp;caso&nbsp;contrário.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="app_desenho.modelo.figuras.html#Figura">Figura</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Oval">class <strong>Oval</strong></a>(<a href="app_desenho.modelo.figuras.html#FiguraPreenchida">FiguraPreenchida</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Oval">Oval</a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;cor_borda,&nbsp;cor_preenchimento)<br>
+&nbsp;<br>
+Representa&nbsp;uma&nbsp;elipse&nbsp;preenchida&nbsp;no&nbsp;desenho.<br>
+&nbsp;<br>
+Finalidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Desenhar&nbsp;uma&nbsp;forma&nbsp;oval&nbsp;com&nbsp;contorno&nbsp;e&nbsp;preenchimento.<br>
+&nbsp;<br>
+Responsabilidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Utilizar&nbsp;as&nbsp;coordenadas&nbsp;de&nbsp;dois&nbsp;cantos&nbsp;opostos&nbsp;para&nbsp;renderizar&nbsp;a&nbsp;oval.<br>
+&nbsp;<br>
+Uso:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Instanciar&nbsp;com&nbsp;`<a href="#Oval">Oval</a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;cor_borda,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cor_preenchimento)`&nbsp;e&nbsp;chamar&nbsp;`<a href="#Oval-desenhar">desenhar</a>(canvas)`.<br>
+&nbsp;<br>
+@author&nbsp;Vinicius<br>
+@version&nbsp;1.0<br>
+@see&nbsp;<a href="#FiguraPreenchida">FiguraPreenchida</a><br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="app_desenho.modelo.figuras.html#Oval">Oval</a></dd>
+<dd><a href="app_desenho.modelo.figuras.html#FiguraPreenchida">FiguraPreenchida</a></dd>
+<dd><a href="app_desenho.modelo.figuras.html#Figura">Figura</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Oval-desenhar"><strong>desenhar</strong></a>(self, canvas, tracejado=False)</dt><dd><span class="code">Desenha&nbsp;uma&nbsp;oval&nbsp;no&nbsp;canvas.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Renderiza&nbsp;uma&nbsp;forma&nbsp;oval&nbsp;com&nbsp;contorno&nbsp;e&nbsp;preenchimento.<br>
+&nbsp;<br>
+@param&nbsp;canvas&nbsp;(tk.Canvas):&nbsp;Canvas&nbsp;onde&nbsp;desenhar.<br>
+@param&nbsp;tracejado&nbsp;(bool):&nbsp;Se&nbsp;True,&nbsp;desenha&nbsp;com&nbsp;linha&nbsp;tracejada.&nbsp;Default(tracejado):&nbsp;False.</span></dd></dl>
+
+<dl><dt><a name="Oval-to_dict"><strong>to_dict</strong></a>(self)</dt><dd><span class="code">Serializa&nbsp;a&nbsp;oval&nbsp;em&nbsp;dicionário.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Converte&nbsp;os&nbsp;atributos&nbsp;da&nbsp;oval&nbsp;em&nbsp;dados&nbsp;para&nbsp;salvamento&nbsp;em&nbsp;JSON.<br>
+&nbsp;<br>
+@return&nbsp;dict:&nbsp;Dicionário&nbsp;com&nbsp;os&nbsp;dados&nbsp;da&nbsp;oval.</span></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Oval-from_dict"><strong>from_dict</strong></a>(dicionario: dict)</dt><dd><span class="code">Desserializa&nbsp;uma&nbsp;oval&nbsp;a&nbsp;partir&nbsp;de&nbsp;um&nbsp;dicionário.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Reconstrói&nbsp;uma&nbsp;instância&nbsp;de&nbsp;<a href="#Oval">Oval</a>&nbsp;a&nbsp;partir&nbsp;de&nbsp;dados&nbsp;serializados.<br>
+&nbsp;<br>
+@param&nbsp;dicionario&nbsp;(dict):&nbsp;Dicionário&nbsp;contendo&nbsp;dados&nbsp;da&nbsp;oval.<br>
+@return&nbsp;<a href="#Oval">Oval</a>:&nbsp;Nova&nbsp;instância&nbsp;de&nbsp;<a href="#Oval">Oval</a>.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Methods inherited from <a href="app_desenho.modelo.figuras.html#FiguraPreenchida">FiguraPreenchida</a>:<br>
+<dl><dt><a name="Oval-__init__"><strong>__init__</strong></a>(self, x1, y1, x2, y2, cor_borda, cor_preenchimento)</dt><dd><span class="code">Inicializa&nbsp;uma&nbsp;figura&nbsp;com&nbsp;cor&nbsp;de&nbsp;preenchimento.<br>
+&nbsp;<br>
+Objetivo:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Configurar&nbsp;coordenadas,&nbsp;cor&nbsp;de&nbsp;borda&nbsp;e&nbsp;cor&nbsp;de&nbsp;preenchimento.<br>
+&nbsp;<br>
+@param&nbsp;x1&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;do&nbsp;ponto&nbsp;inicial.<br>
+@param&nbsp;y1&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;do&nbsp;ponto&nbsp;inicial.<br>
+@param&nbsp;x2&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;do&nbsp;ponto&nbsp;final.<br>
+@param&nbsp;y2&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;do&nbsp;ponto&nbsp;final.<br>
+@param&nbsp;cor_borda&nbsp;(str):&nbsp;Cor&nbsp;da&nbsp;borda.<br>
+@param&nbsp;cor_preenchimento&nbsp;(str):&nbsp;Cor&nbsp;de&nbsp;preenchimento&nbsp;interno.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="app_desenho.modelo.figuras.html#Figura">Figura</a>:<br>
+<dl><dt><a name="Oval-atualizar"><strong>atualizar</strong></a>(self, x, y)</dt><dd><span class="code">Atualiza&nbsp;a&nbsp;coordenada&nbsp;final&nbsp;da&nbsp;figura.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Modifica&nbsp;o&nbsp;ponto&nbsp;final&nbsp;(x2,&nbsp;y2)&nbsp;para&nbsp;a&nbsp;nova&nbsp;posição&nbsp;fornecida.<br>
+&nbsp;<br>
+@param&nbsp;x&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;da&nbsp;nova&nbsp;posição&nbsp;final.<br>
+@param&nbsp;y&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;da&nbsp;nova&nbsp;posição&nbsp;final.</span></dd></dl>
+
+<dl><dt><a name="Oval-esta_incompleta"><strong>esta_incompleta</strong></a>(self)</dt><dd><span class="code">Verifica&nbsp;se&nbsp;a&nbsp;figura&nbsp;ainda&nbsp;está&nbsp;em&nbsp;construção.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Uma&nbsp;figura&nbsp;está&nbsp;incompleta&nbsp;se&nbsp;o&nbsp;ponto&nbsp;inicial&nbsp;e&nbsp;final&nbsp;são&nbsp;iguais,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;indicando&nbsp;que&nbsp;ainda&nbsp;não&nbsp;foi&nbsp;pelo&nbsp;menos&nbsp;arrastada.<br>
+&nbsp;<br>
+@return&nbsp;bool:&nbsp;True&nbsp;se&nbsp;a&nbsp;figura&nbsp;está&nbsp;incompleta,&nbsp;False&nbsp;caso&nbsp;contrário.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="app_desenho.modelo.figuras.html#Figura">Figura</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Poligono">class <strong>Poligono</strong></a>(<a href="app_desenho.modelo.figuras.html#FiguraPreenchida">FiguraPreenchida</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Poligono">Poligono</a>(x,&nbsp;y,&nbsp;cor_borda,&nbsp;cor_preenchimento)<br>
+&nbsp;<br>
+Representa&nbsp;um&nbsp;polígono&nbsp;construído&nbsp;por&nbsp;vértices.<br>
+&nbsp;<br>
+Finalidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Permitir&nbsp;desenho&nbsp;de&nbsp;formas&nbsp;poligonais&nbsp;com&nbsp;vários&nbsp;vértices.<br>
+&nbsp;<br>
+Responsabilidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Armazenar&nbsp;vértices,&nbsp;acompanhar&nbsp;se&nbsp;o&nbsp;polígono&nbsp;foi&nbsp;finalizado&nbsp;e<br>
+&nbsp;&nbsp;&nbsp;&nbsp;renderizá-lo&nbsp;corretamente.<br>
+&nbsp;<br>
+Uso:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Criar&nbsp;com&nbsp;`<a href="#Poligono">Poligono</a>(x,&nbsp;y,&nbsp;cor_borda,&nbsp;cor_preenchimento)`,&nbsp;usar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`<a href="#Poligono-adicionar_vertice">adicionar_vertice</a>(x,&nbsp;y)`&nbsp;para&nbsp;cada&nbsp;novo&nbsp;ponto,&nbsp;e&nbsp;`<a href="#Poligono-finalizar">finalizar</a>()`&nbsp;antes&nbsp;de<br>
+&nbsp;&nbsp;&nbsp;&nbsp;adicionar&nbsp;ao&nbsp;desenho.<br>
+&nbsp;<br>
+@author&nbsp;Vinicius<br>
+@version&nbsp;1.0<br>
+@see&nbsp;<a href="#FiguraPreenchida">FiguraPreenchida</a><br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="app_desenho.modelo.figuras.html#Poligono">Poligono</a></dd>
+<dd><a href="app_desenho.modelo.figuras.html#FiguraPreenchida">FiguraPreenchida</a></dd>
+<dd><a href="app_desenho.modelo.figuras.html#Figura">Figura</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Poligono-__init__"><strong>__init__</strong></a>(self, x, y, cor_borda, cor_preenchimento)</dt><dd><span class="code">Inicializa&nbsp;um&nbsp;polígono&nbsp;em&nbsp;construção&nbsp;com&nbsp;o&nbsp;primeiro&nbsp;vértice.<br>
+&nbsp;<br>
+Objetivo:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Criar&nbsp;a&nbsp;estrutura&nbsp;de&nbsp;pontos&nbsp;e&nbsp;configurar&nbsp;cores&nbsp;para&nbsp;o&nbsp;polígono.<br>
+&nbsp;<br>
+@param&nbsp;x&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;do&nbsp;primeiro&nbsp;vértice.<br>
+@param&nbsp;y&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;do&nbsp;primeiro&nbsp;vértice.<br>
+@param&nbsp;cor_borda&nbsp;(str):&nbsp;Cor&nbsp;da&nbsp;borda&nbsp;do&nbsp;polígono.<br>
+@param&nbsp;cor_preenchimento&nbsp;(str):&nbsp;Cor&nbsp;de&nbsp;preenchimento&nbsp;do&nbsp;polígono.</span></dd></dl>
+
+<dl><dt><a name="Poligono-adicionar_vertice"><strong>adicionar_vertice</strong></a>(self, x, y)</dt><dd><span class="code">Adiciona&nbsp;um&nbsp;novo&nbsp;vértice&nbsp;ao&nbsp;polígono.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Anexa&nbsp;as&nbsp;coordenadas&nbsp;como&nbsp;um&nbsp;novo&nbsp;ponto&nbsp;e&nbsp;atualiza&nbsp;a&nbsp;posição&nbsp;final.<br>
+&nbsp;<br>
+@param&nbsp;x&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;do&nbsp;novo&nbsp;vértice.<br>
+@param&nbsp;y&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;do&nbsp;novo&nbsp;vértice.</span></dd></dl>
+
+<dl><dt><a name="Poligono-atualizar"><strong>atualizar</strong></a>(self, x, y)</dt><dd><span class="code">Atualiza&nbsp;a&nbsp;posição&nbsp;temporária&nbsp;enquanto&nbsp;se&nbsp;desenha.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Modifica&nbsp;o&nbsp;último&nbsp;ponto&nbsp;sem&nbsp;adicioná-lo&nbsp;permanentemente&nbsp;(linha&nbsp;de&nbsp;pré-visualização).<br>
+&nbsp;<br>
+@param&nbsp;x&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;da&nbsp;posição&nbsp;temporária.<br>
+@param&nbsp;y&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;da&nbsp;posição&nbsp;temporária.</span></dd></dl>
+
+<dl><dt><a name="Poligono-desenhar"><strong>desenhar</strong></a>(self, canvas, tracejado=False)</dt><dd><span class="code">Desenha&nbsp;o&nbsp;polígono&nbsp;no&nbsp;canvas.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Se&nbsp;finalizado,&nbsp;renderiza&nbsp;como&nbsp;polígono&nbsp;preenchido;&nbsp;caso&nbsp;contrário,&nbsp;como&nbsp;linha&nbsp;tracejada.<br>
+&nbsp;<br>
+@param&nbsp;canvas&nbsp;(tk.Canvas):&nbsp;Canvas&nbsp;onde&nbsp;desenhar.<br>
+@param&nbsp;tracejado&nbsp;(bool):&nbsp;Se&nbsp;True,&nbsp;desenha&nbsp;com&nbsp;linha&nbsp;tracejada.&nbsp;Default:&nbsp;False.</span></dd></dl>
+
+<dl><dt><a name="Poligono-esta_incompleta"><strong>esta_incompleta</strong></a>(self)</dt><dd><span class="code">Verifica&nbsp;se&nbsp;o&nbsp;polígono&nbsp;ainda&nbsp;está&nbsp;em&nbsp;construção.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Um&nbsp;polígono&nbsp;está&nbsp;incompleto&nbsp;se&nbsp;não&nbsp;foi&nbsp;finalizado&nbsp;ou&nbsp;tem&nbsp;menos&nbsp;de&nbsp;3&nbsp;pontos.<br>
+&nbsp;<br>
+@return&nbsp;bool:&nbsp;True&nbsp;se&nbsp;incompleto,&nbsp;False&nbsp;se&nbsp;é&nbsp;um&nbsp;polígono&nbsp;válido&nbsp;finalizado.</span></dd></dl>
+
+<dl><dt><a name="Poligono-finalizar"><strong>finalizar</strong></a>(self)</dt><dd><span class="code">Marca&nbsp;o&nbsp;polígono&nbsp;como&nbsp;finalizado.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Define&nbsp;o&nbsp;polígono&nbsp;como&nbsp;completo&nbsp;e&nbsp;pronto&nbsp;para&nbsp;ser&nbsp;adicionado&nbsp;ao&nbsp;desenho.</span></dd></dl>
+
+<dl><dt><a name="Poligono-to_dict"><strong>to_dict</strong></a>(self)</dt><dd><span class="code">Serializa&nbsp;o&nbsp;polígono&nbsp;em&nbsp;dicionário.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Converte&nbsp;todos&nbsp;os&nbsp;atributos&nbsp;do&nbsp;polígono&nbsp;incluindo&nbsp;a&nbsp;lista&nbsp;de&nbsp;vértices.<br>
+&nbsp;<br>
+@return&nbsp;dict:&nbsp;Dicionário&nbsp;com&nbsp;os&nbsp;dados&nbsp;do&nbsp;polígono.</span></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Poligono-from_dict"><strong>from_dict</strong></a>(dicionario: dict)</dt><dd><span class="code">Desserializa&nbsp;um&nbsp;polígono&nbsp;a&nbsp;partir&nbsp;de&nbsp;um&nbsp;dicionário.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Reconstrói&nbsp;uma&nbsp;instância&nbsp;de&nbsp;<a href="#Poligono">Poligono</a>&nbsp;incluindo&nbsp;todos&nbsp;os&nbsp;vértices&nbsp;e&nbsp;estado.<br>
+&nbsp;<br>
+@param&nbsp;dicionario&nbsp;(dict):&nbsp;Dicionário&nbsp;contendo&nbsp;dados&nbsp;do&nbsp;polígono.<br>
+@return&nbsp;<a href="#Poligono">Poligono</a>:&nbsp;Nova&nbsp;instância&nbsp;de&nbsp;<a href="#Poligono">Poligono</a>.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Data descriptors inherited from <a href="app_desenho.modelo.figuras.html#Figura">Figura</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Rabisco">class <strong>Rabisco</strong></a>(<a href="app_desenho.modelo.figuras.html#Figura">Figura</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Rabisco">Rabisco</a>(x1,&nbsp;y1,&nbsp;cor_borda)<br>
+&nbsp;<br>
+Representa&nbsp;um&nbsp;traço&nbsp;livre&nbsp;como&nbsp;sequência&nbsp;de&nbsp;pontos.<br>
+&nbsp;<br>
+Finalidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Permitir&nbsp;desenho&nbsp;solto&nbsp;com&nbsp;múltiplos&nbsp;segmentos&nbsp;conectados.<br>
+&nbsp;<br>
+Responsabilidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Armazenar&nbsp;uma&nbsp;lista&nbsp;de&nbsp;pontos&nbsp;e&nbsp;renderizar&nbsp;o&nbsp;traço&nbsp;no&nbsp;canvas.<br>
+&nbsp;<br>
+Uso:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Instanciar&nbsp;com&nbsp;`<a href="#Rabisco">Rabisco</a>(x1,&nbsp;y1,&nbsp;cor_borda)`,&nbsp;chamar&nbsp;`<a href="#Rabisco-atualizar">atualizar</a>(x,&nbsp;y)`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;para&nbsp;adicionar&nbsp;pontos&nbsp;e&nbsp;`<a href="#Rabisco-desenhar">desenhar</a>(canvas)`&nbsp;para&nbsp;renderizar.<br>
+&nbsp;<br>
+@author&nbsp;Vinicius<br>
+@version&nbsp;1.0<br>
+@see&nbsp;<a href="#Figura">Figura</a><br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="app_desenho.modelo.figuras.html#Rabisco">Rabisco</a></dd>
+<dd><a href="app_desenho.modelo.figuras.html#Figura">Figura</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Rabisco-__init__"><strong>__init__</strong></a>(self, x1, y1, cor_borda)</dt><dd><span class="code">Inicializa&nbsp;um&nbsp;rabisco&nbsp;livre&nbsp;com&nbsp;o&nbsp;ponto&nbsp;inicial.<br>
+&nbsp;<br>
+Objetivo:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Criar&nbsp;um&nbsp;traço&nbsp;em&nbsp;construção&nbsp;armazenando&nbsp;o&nbsp;primeiro&nbsp;ponto.<br>
+&nbsp;<br>
+@param&nbsp;x1&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;inicial&nbsp;do&nbsp;rabisco.<br>
+@param&nbsp;y1&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;inicial&nbsp;do&nbsp;rabisco.<br>
+@param&nbsp;cor_borda&nbsp;(str):&nbsp;Cor&nbsp;da&nbsp;linha&nbsp;do&nbsp;rabisco.</span></dd></dl>
+
+<dl><dt><a name="Rabisco-atualizar"><strong>atualizar</strong></a>(self, x, y)</dt><dd><span class="code">Adiciona&nbsp;um&nbsp;novo&nbsp;ponto&nbsp;ao&nbsp;rabisco.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Anexa&nbsp;as&nbsp;coordenadas&nbsp;fornecidas&nbsp;à&nbsp;lista&nbsp;de&nbsp;pontos&nbsp;do&nbsp;traço&nbsp;livre.<br>
+&nbsp;<br>
+@param&nbsp;x&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;do&nbsp;novo&nbsp;ponto.<br>
+@param&nbsp;y&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;do&nbsp;novo&nbsp;ponto.</span></dd></dl>
+
+<dl><dt><a name="Rabisco-desenhar"><strong>desenhar</strong></a>(self, canvas, tracejado=False)</dt><dd><span class="code">Desenha&nbsp;o&nbsp;rabisco&nbsp;como&nbsp;uma&nbsp;sequência&nbsp;de&nbsp;linha&nbsp;conectada.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Renderiza&nbsp;todos&nbsp;os&nbsp;pontos&nbsp;conectados&nbsp;no&nbsp;canvas&nbsp;se&nbsp;houver&nbsp;pelo&nbsp;menos&nbsp;2&nbsp;pontos.<br>
+&nbsp;<br>
+@param&nbsp;canvas&nbsp;(tk.Canvas):&nbsp;Canvas&nbsp;onde&nbsp;desenhar.<br>
+@param&nbsp;tracejado&nbsp;(bool):&nbsp;Se&nbsp;True,&nbsp;desenha&nbsp;com&nbsp;linha&nbsp;tracejada.&nbsp;Default:&nbsp;False.</span></dd></dl>
+
+<dl><dt><a name="Rabisco-esta_incompleta"><strong>esta_incompleta</strong></a>(self)</dt><dd><span class="code">Verifica&nbsp;se&nbsp;o&nbsp;rabisco&nbsp;tem&nbsp;menos&nbsp;de&nbsp;2&nbsp;pontos.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Um&nbsp;rabisco&nbsp;está&nbsp;incompleto&nbsp;se&nbsp;possui&nbsp;menos&nbsp;de&nbsp;2&nbsp;pontos&nbsp;(sem&nbsp;poder&nbsp;desenhar).<br>
+&nbsp;<br>
+@return&nbsp;bool:&nbsp;True&nbsp;se&nbsp;o&nbsp;rabisco&nbsp;tem&nbsp;menos&nbsp;de&nbsp;2&nbsp;pontos,&nbsp;False&nbsp;caso&nbsp;contrário.</span></dd></dl>
+
+<dl><dt><a name="Rabisco-to_dict"><strong>to_dict</strong></a>(self)</dt><dd><span class="code">Serializa&nbsp;o&nbsp;rabisco&nbsp;em&nbsp;dicionário.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Converte&nbsp;os&nbsp;atributos&nbsp;do&nbsp;rabisco&nbsp;incluindo&nbsp;a&nbsp;lista&nbsp;de&nbsp;pontos&nbsp;para&nbsp;JSON.<br>
+&nbsp;<br>
+@return&nbsp;dict:&nbsp;Dicionário&nbsp;com&nbsp;os&nbsp;dados&nbsp;do&nbsp;rabisco.</span></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Rabisco-from_dict"><strong>from_dict</strong></a>(dicionario: dict)</dt><dd><span class="code">Desserializa&nbsp;um&nbsp;rabisco&nbsp;a&nbsp;partir&nbsp;de&nbsp;um&nbsp;dicionário.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Reconstrói&nbsp;uma&nbsp;instância&nbsp;de&nbsp;<a href="#Rabisco">Rabisco</a>&nbsp;incluindo&nbsp;a&nbsp;lista&nbsp;de&nbsp;pontos.<br>
+&nbsp;<br>
+@param&nbsp;dicionario&nbsp;(dict):&nbsp;Dicionário&nbsp;contendo&nbsp;dados&nbsp;do&nbsp;rabisco.<br>
+@return&nbsp;<a href="#Rabisco">Rabisco</a>:&nbsp;Nova&nbsp;instância&nbsp;de&nbsp;<a href="#Rabisco">Rabisco</a>.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Data descriptors inherited from <a href="app_desenho.modelo.figuras.html#Figura">Figura</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Retangulo">class <strong>Retangulo</strong></a>(<a href="app_desenho.modelo.figuras.html#FiguraPreenchida">FiguraPreenchida</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Retangulo">Retangulo</a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;cor_borda,&nbsp;cor_preenchimento)<br>
+&nbsp;<br>
+Representa&nbsp;um&nbsp;retângulo&nbsp;preenchido&nbsp;no&nbsp;desenho.<br>
+&nbsp;<br>
+Finalidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Criar&nbsp;e&nbsp;desenhar&nbsp;um&nbsp;retângulo&nbsp;com&nbsp;contorno&nbsp;e&nbsp;preenchimento.<br>
+&nbsp;<br>
+Responsabilidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Aplicar&nbsp;as&nbsp;coordenadas&nbsp;e&nbsp;opções&nbsp;de&nbsp;estilo&nbsp;no&nbsp;método&nbsp;de&nbsp;desenho.<br>
+&nbsp;<br>
+Uso:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Instanciar&nbsp;com&nbsp;`<a href="#Retangulo">Retangulo</a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;cor_borda,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cor_preenchimento)`&nbsp;e&nbsp;chamar&nbsp;`<a href="#Retangulo-desenhar">desenhar</a>(canvas)`&nbsp;para&nbsp;renderizar.<br>
+&nbsp;<br>
+@author&nbsp;Vinicius<br>
+@version&nbsp;1.0<br>
+@see&nbsp;<a href="#FiguraPreenchida">FiguraPreenchida</a><br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="app_desenho.modelo.figuras.html#Retangulo">Retangulo</a></dd>
+<dd><a href="app_desenho.modelo.figuras.html#FiguraPreenchida">FiguraPreenchida</a></dd>
+<dd><a href="app_desenho.modelo.figuras.html#Figura">Figura</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Retangulo-desenhar"><strong>desenhar</strong></a>(self, canvas, tracejado=False)</dt><dd><span class="code">Desenha&nbsp;um&nbsp;retângulo&nbsp;no&nbsp;canvas.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Renderiza&nbsp;um&nbsp;retângulo&nbsp;com&nbsp;contorno&nbsp;e&nbsp;preenchimento.<br>
+&nbsp;<br>
+@param&nbsp;canvas&nbsp;(tk.Canvas):&nbsp;Canvas&nbsp;onde&nbsp;desenhar.<br>
+@param&nbsp;tracejado&nbsp;(bool):&nbsp;Se&nbsp;True,&nbsp;desenha&nbsp;com&nbsp;linha&nbsp;tracejada.&nbsp;Default(tracejado):&nbsp;False.</span></dd></dl>
+
+<dl><dt><a name="Retangulo-to_dict"><strong>to_dict</strong></a>(self)</dt><dd><span class="code">Serializa&nbsp;o&nbsp;retângulo&nbsp;em&nbsp;dicionário.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Converte&nbsp;os&nbsp;atributos&nbsp;do&nbsp;retângulo&nbsp;em&nbsp;dados&nbsp;para&nbsp;salvamento&nbsp;em&nbsp;JSON.<br>
+&nbsp;<br>
+@return&nbsp;dict:&nbsp;Dicionário&nbsp;com&nbsp;os&nbsp;dados&nbsp;do&nbsp;retângulo.</span></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Retangulo-from_dict"><strong>from_dict</strong></a>(dicionario: dict)</dt><dd><span class="code">Desserializa&nbsp;um&nbsp;retângulo&nbsp;a&nbsp;partir&nbsp;de&nbsp;um&nbsp;dicionário.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Reconstrói&nbsp;uma&nbsp;instância&nbsp;de&nbsp;<a href="#Retangulo">Retangulo</a>&nbsp;a&nbsp;partir&nbsp;de&nbsp;dados&nbsp;serializados.<br>
+&nbsp;<br>
+@param&nbsp;dicionario&nbsp;(dict):&nbsp;Dicionário&nbsp;contendo&nbsp;dados&nbsp;do&nbsp;retângulo.<br>
+@return&nbsp;<a href="#Retangulo">Retangulo</a>:&nbsp;Nova&nbsp;instância&nbsp;de&nbsp;<a href="#Retangulo">Retangulo</a>.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Methods inherited from <a href="app_desenho.modelo.figuras.html#FiguraPreenchida">FiguraPreenchida</a>:<br>
+<dl><dt><a name="Retangulo-__init__"><strong>__init__</strong></a>(self, x1, y1, x2, y2, cor_borda, cor_preenchimento)</dt><dd><span class="code">Inicializa&nbsp;uma&nbsp;figura&nbsp;com&nbsp;cor&nbsp;de&nbsp;preenchimento.<br>
+&nbsp;<br>
+Objetivo:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Configurar&nbsp;coordenadas,&nbsp;cor&nbsp;de&nbsp;borda&nbsp;e&nbsp;cor&nbsp;de&nbsp;preenchimento.<br>
+&nbsp;<br>
+@param&nbsp;x1&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;do&nbsp;ponto&nbsp;inicial.<br>
+@param&nbsp;y1&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;do&nbsp;ponto&nbsp;inicial.<br>
+@param&nbsp;x2&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;do&nbsp;ponto&nbsp;final.<br>
+@param&nbsp;y2&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;do&nbsp;ponto&nbsp;final.<br>
+@param&nbsp;cor_borda&nbsp;(str):&nbsp;Cor&nbsp;da&nbsp;borda.<br>
+@param&nbsp;cor_preenchimento&nbsp;(str):&nbsp;Cor&nbsp;de&nbsp;preenchimento&nbsp;interno.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="app_desenho.modelo.figuras.html#Figura">Figura</a>:<br>
+<dl><dt><a name="Retangulo-atualizar"><strong>atualizar</strong></a>(self, x, y)</dt><dd><span class="code">Atualiza&nbsp;a&nbsp;coordenada&nbsp;final&nbsp;da&nbsp;figura.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Modifica&nbsp;o&nbsp;ponto&nbsp;final&nbsp;(x2,&nbsp;y2)&nbsp;para&nbsp;a&nbsp;nova&nbsp;posição&nbsp;fornecida.<br>
+&nbsp;<br>
+@param&nbsp;x&nbsp;(int):&nbsp;Coordenada&nbsp;x&nbsp;da&nbsp;nova&nbsp;posição&nbsp;final.<br>
+@param&nbsp;y&nbsp;(int):&nbsp;Coordenada&nbsp;y&nbsp;da&nbsp;nova&nbsp;posição&nbsp;final.</span></dd></dl>
+
+<dl><dt><a name="Retangulo-esta_incompleta"><strong>esta_incompleta</strong></a>(self)</dt><dd><span class="code">Verifica&nbsp;se&nbsp;a&nbsp;figura&nbsp;ainda&nbsp;está&nbsp;em&nbsp;construção.<br>
+&nbsp;<br>
+Descrição:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Uma&nbsp;figura&nbsp;está&nbsp;incompleta&nbsp;se&nbsp;o&nbsp;ponto&nbsp;inicial&nbsp;e&nbsp;final&nbsp;são&nbsp;iguais,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;indicando&nbsp;que&nbsp;ainda&nbsp;não&nbsp;foi&nbsp;pelo&nbsp;menos&nbsp;arrastada.<br>
+&nbsp;<br>
+@return&nbsp;bool:&nbsp;True&nbsp;se&nbsp;a&nbsp;figura&nbsp;está&nbsp;incompleta,&nbsp;False&nbsp;caso&nbsp;contrário.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="app_desenho.modelo.figuras.html#Figura">Figura</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-figura_from_dict"><strong>figura_from_dict</strong></a>(dicionario: dict)</dt><dd><span class="code">Instancia&nbsp;a&nbsp;classe&nbsp;de&nbsp;figura&nbsp;correta&nbsp;a&nbsp;partir&nbsp;de&nbsp;um&nbsp;dicionário.<br>
+&nbsp;<br>
+Finalidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Reconstruir&nbsp;obejtos&nbsp;feitos&nbsp;de&nbsp;<a href="#Figura">Figura</a>&nbsp;a&nbsp;partir&nbsp;de&nbsp;dados&nbsp;serializados.<br>
+&nbsp;<br>
+Responsabilidade:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Identificar&nbsp;a&nbsp;etiqueta&nbsp;de&nbsp;tipo&nbsp;no&nbsp;dicionário&nbsp;e&nbsp;despachar&nbsp;a&nbsp;criação<br>
+&nbsp;&nbsp;&nbsp;&nbsp;para&nbsp;o&nbsp;método&nbsp;estático&nbsp;`from_dict`&nbsp;da&nbsp;subclasse&nbsp;correspondente.<br>
+&nbsp;<br>
+Uso:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Chamar&nbsp;`<a href="#-figura_from_dict">figura_from_dict</a>(dados_da_figura)`&nbsp;ao&nbsp;ler&nbsp;dados&nbsp;de&nbsp;um&nbsp;arquivo.<br>
+&nbsp;<br>
+@author&nbsp;Vinicius<br>
+@version&nbsp;1.0</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>CLASSES_FIGURA</strong> = {'Circulo': &lt;class 'app_desenho.modelo.figuras.Circulo'&gt;, 'Linha': &lt;class 'app_desenho.modelo.figuras.Linha'&gt;, 'Oval': &lt;class 'app_desenho.modelo.figuras.Oval'&gt;, 'Retangulo': &lt;class 'app_desenho.modelo.figuras.Retangulo'&gt;}</td></tr></table>
+</body></html>

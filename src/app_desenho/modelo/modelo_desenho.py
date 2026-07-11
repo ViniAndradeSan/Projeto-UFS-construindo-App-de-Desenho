@@ -16,8 +16,8 @@ class Desenho:
         Instanciar com `Desenho()`, utilizar `adicionar(figura)`, `desfazer()`,
         `limpar()`, `abrir(diretorio)` e `salvar(diretorio)`.
 
-    Autor: Danillo
-    Versão: 1.0
+    @author Danillo
+    @version 1.0
     """
 
     def __init__(self):
@@ -26,8 +26,6 @@ class Desenho:
         Objetivo:
             Preparar o estado inicial do desenho para receber figuras.
 
-        Args:
-            Nenhum
         """
         self._figuras = []
         self._figura_atual = []
@@ -42,8 +40,7 @@ class Desenho:
         Descrição:
             Fornece acesso à lista de figuras sem permitir modificações diretas.
 
-        Returns:
-            list: Cópia da lista de figuras atuais.
+        @return list: Cópia da lista de figuras atuais.
         """
         return list(self._figuras)
     
@@ -53,19 +50,17 @@ class Desenho:
         Descrição:
             Anexa uma figura completada à lista de figuras do desenho.
 
-        Args:
-            figura (Figura): Instância de uma figura completa para adicionar.
+        @param figura (Figura): Instância de uma figura completa para adicionar.
         """
         self._figuras.append(figura)
 
     def desfazer(self):
         """Remove e retorna a última figura adicionada.
 
-        Descrião:
+        Descrição:
             Executa uma operação de desfazer removendo a figura do topo da pilha.
 
-        Returns:
-            Figura ou None: A última figura adicionada, ou None se a lista está vazia.
+        @return Figura ou None: A última figura adicionada, ou None se a lista está vazia.
         """
         if self._figuras:
             return self._figuras.pop()
@@ -92,8 +87,7 @@ class Desenho:
         Descrição:
             Retorna verdadeiro se a lista de figuras está vazia.
 
-        Returns:
-            bool: True se não há figuras, False caso contrário.
+        @return bool: True se não há figuras, False caso contrário.
         """
         return len(self._figuras) == 0
 
@@ -103,8 +97,7 @@ class Desenho:
         Descrição:
             Converte todas as figuras em dicionários para salvamento em JSON.
 
-        Returns:
-            dict: Dicionário com lista de figuras serializadas.
+        @return dict: Dicionário com lista de figuras serializadas.
         """
         return {
             'figuras': [f.to_dict() for f in self._figuras],
@@ -117,11 +110,8 @@ class Desenho:
         Descrição:
             Reconstrói uma instância de Desenho com todas as figuras armazenadas.
 
-        Args:
-            dicionario (dict): Dicionário contendo dados de figuras serializadas.
-
-        Returns:
-            Desenho: Nova instância de Desenho com as figuras restauradas.
+        @param dicionario (dict): Dicionário contendo dados de figuras serializadas.
+        @return Desenho: Nova instância de Desenho com as figuras restauradas.
         """
         modelo = Desenho()
         for figuradata in dicionario['figuras']:
@@ -134,12 +124,9 @@ class Desenho:
         Descrição:
             Lê um arquivo JSON e reconstrói todas as figuras, limpando o estado atual.
 
-        Args:
-            diretorio (str): Caminho do arquivo JSON a ser carregado.
-
-        Raises:
-            FileNotFoundError: Se o arquivo não existir.
-            json.JSONDecodeError: Se o arquivo não for um JSON válido.
+        @param diretorio (str): Caminho do arquivo JSON a ser carregado.
+        @throws FileNotFoundError: Se o arquivo não existir.
+        @throws json.JSONDecodeError: Se o arquivo não for um JSON válido.
         """
         with open(diretorio, 'r') as file:
             self.arquivo = json.load(file) 
@@ -155,11 +142,8 @@ class Desenho:
         Descrição:
             Serializa todas as figuras e escreve em um arquivo JSON.
 
-        Args:
-            diretorio (str): Caminho do arquivo JSON onde salvar.
-
-        Raises:
-            IOError: Se não for possível escrever no arquivo.
+        @param diretorio (str): Caminho do arquivo JSON onde salvar.
+        @throws IOError: Se não for possível escrever no arquivo.
         """
         self.figuras_serializadas = self.to_dict()
         with open(diretorio, "w") as file:
