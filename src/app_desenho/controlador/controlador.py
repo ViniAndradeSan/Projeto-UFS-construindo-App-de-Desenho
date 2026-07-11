@@ -4,6 +4,23 @@ from tkinter import  colorchooser, filedialog
 
 
 class Controlador:
+    """Controlador da aplicação de desenho que liga modelo e visão.
+
+    Finalidade:
+        Gerenciar a criação, atualização e inclusão de figuras no desenho.
+
+    Responsabilidade:
+        Receber eventos de mouse e teclado, controlar a figura em construção,
+        executar desfazer/limpar e tratar operações de abrir/salvar.
+
+    Uso:
+        Instanciar com `Controlador(desenho, area_desenho)` e conectar eventos do
+        canvas e da interface gráfica.
+
+    Autor: Constrole Vinicius
+    Versão: 1.0
+    """
+
     CLASSES_FIGURA = {
         'Linha': Linha,
         'Retangulo': Retangulo,

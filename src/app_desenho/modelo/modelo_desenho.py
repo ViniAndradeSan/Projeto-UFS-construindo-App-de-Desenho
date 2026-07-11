@@ -2,6 +2,24 @@ from .figuras import figura_from_dict
 import json
 
 class Desenho:
+    """Modelo de desenho que agrupa figuras e manipula seu estado.
+
+    Finalidade:
+        Manter a lista de figuras criadas, permitir desfazer, limpar e gerenciar
+        carregamento/salvamento.
+
+    Responsabilidade:
+        Ser o repositório de dados do desenho e converter figuras para/desde
+        representação JSON.
+
+    Uso:
+        Instanciar com `Desenho()`, utilizar `adicionar(figura)`, `desfazer()`,
+        `limpar()`, `abrir(diretorio)` e `salvar(diretorio)`.
+
+    Autor: Danillo
+    Versão: 1.0
+    """
+
     def __init__(self):
         self._figuras = []
         self._figura_atual = []

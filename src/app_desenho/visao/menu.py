@@ -2,6 +2,23 @@ import tkinter as tk
 
 
 class BarraMenu:
+    """Barra de menu para operações de arquivo no aplicativo de desenho.
+
+    Finalidade:
+        Expor ações de abrir e salvar desenho por meio de um menu padrão.
+
+    Responsabilidade:
+        Criar o menu principal e associar atalhos de teclado às funções do
+        controlador.
+
+    Uso:
+        Instanciar com `BarraMenu(root, controlador)` depois de criar a janela
+        principal (`root`) e o controlador.
+
+    Autor: Danillo
+    Versão: 1.0
+    """
+
     def __init__(self, root, controlador):
         
         self.menu = tk.Menu(root)

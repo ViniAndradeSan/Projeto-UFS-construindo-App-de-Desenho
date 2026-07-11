@@ -1,6 +1,24 @@
 from tkinter import *
 
 class AreaDesenho:
+    """Área de desenho responsável por exibir as figuras no canvas.
+
+    Finalidade:
+        Renderizar figuras existentes e a figura em construção dentro da área do
+        aplicativo.
+
+    Responsabilidade:
+        Criar o canvas, atualizar sua exibição e redesenhar todas as figuras
+        conforme o estado atual do desenho.
+
+    Uso:
+        Instanciar com `AreaDesenho(frame)` e chamar `atualizar(figuras,
+        figura_em_processo)` quando o estado do desenho mudar.
+
+    Autor: Danillo
+    Versão: 1.0
+    """
+
     def __init__(self, frame):
         self.frame = frame
         self.canvas = Canvas(frame, bg='white', width=800, height=600)

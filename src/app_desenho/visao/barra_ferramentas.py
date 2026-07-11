@@ -1,6 +1,23 @@
 from tkinter import StringVar, Label, E, W, ttk, Button, Frame, LEFT
 
 class BarraFerramentas:
+    """Barra de ferramentas para selecionar forma, cores e ações do desenho.
+
+    Finalidade:
+        Fornecer controles de seleção de figura, cores, desfazer e limpar tela.
+
+    Responsabilidade:
+        Criar e posicionar os widgets de interface para operar o controlador do
+        desenho.
+
+    Uso:
+        Instanciar com `BarraFerramentas(frame, controlador)` após criar o
+        controlador do desenho.
+
+    Autor: Danillo
+    Versão: 1.0
+    """
+
     paddings = {'padx': 5, 'pady': 5}
 
     def __init__(self, frame, controlador):
