@@ -48,6 +48,8 @@ class BarraFerramentas:
         )
         option_menu.grid(column=1, row=0, sticky=W, **self.paddings, rowspan=2)
 
+        tipo_figura_var.trace_add('write', lambda *_: controlador.selecionar_ferramenta(tipo_figura_var.get()))
+
         # Menu de cores
         self.label_cor_borda = Label(frame, text='Cor da borda: ')
         self.label_cor_borda.grid(column=2, row=0, sticky=E, **self.paddings)
